@@ -1,7 +1,7 @@
 <div id="side_link">
     <h3>Link Utili</h4>
     <ul>
-        <li><a href="/~roberto/Coli_modern/opac/support/netiquette.php">Netiquette</a></li>
+        <li><a href="/~roberto/CoLi/opac/support/netiquette.php">Netiquette</a></li>
         <li><a href="#">Privacy</a></li>
         <li><a href="#">Statistiche</a></li>
     </ul>

@@ -2,8 +2,8 @@
 <html>
     <head>
         <meta charset="UTF-8">
-        <link type="text/css" rel="stylesheet" href="/~roberto/Coli_modern/style.css">
-        <link rel="icon" href="/~roberto/Coli_modern/resources/images/Book.png"/>
+        <link type="text/css" rel="stylesheet" href="/~roberto/CoLi/style.css">
+        <link rel="icon" href="/~roberto/CoLi/resources/images/Book.png"/>
         <title>OPAC-Biblioteca Sassinoro</title>
     </head>
     <body>
@@ -16,6 +16,7 @@
             <div class="container">
                 <?php include 'includes/header.php'; ?>
                 <?php include 'includes/nav.php'; ?>
+                <?php include 'includes/popup.php'; ?>
             </div>
         </div>
         <div id="content">
