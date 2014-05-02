@@ -1,0 +1,12 @@
+Accesso Z39.50 all'opac SBN. 
+
+Dati di configurazione essenziali per il target:
+indirizzo: opac.sbn.it
+porte: 2100 o 3950
+nome DB: nopac
+sintassi dei record: SUTRS o UNIMARC (su ambedue le porte)
+set di attributi: Bib-1 (parte)
+set di caratteri: UTF-8
+
+- i record in formato UNIMARC possono essere presentati solo uno alla volta
+- nella query si consiglia di non usare caratteri diacritici (accenti,etc.) 
