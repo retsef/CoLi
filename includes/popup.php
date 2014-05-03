@@ -9,6 +9,15 @@
             </div>
             <div class="dialog_body">
                 <form action="/~roberto/CoLi/opac/support/login.php" method="post">
+                    <div class="input_group">
+                        <img src="/~roberto/CoLi/resources/images/icon/user.png" alt="use_icon" class="input_addon">
+                        <input type="text" placeholder="Username" name="username_box" class="input_form">
+                    </div>
+                    <div class="input_group">
+                        <img src="/~roberto/CoLi/resources/images/icon/key.png" alt="key_icon" class="input_addon">
+                        <input type="text" placeholder="Password" name="password_box" class="input_form">
+                    </div>
+                    <div >
                     <div>
                         <img src="/~roberto/CoLi/resources/images/icon/user.png" alt="use_icon" class="input_addon">
                         <input type="text" placeholder="Username" name="username_box" class="input_form">
