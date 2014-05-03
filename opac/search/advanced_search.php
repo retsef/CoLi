@@ -21,12 +21,12 @@
         </div>
         <div id="content">
             <div class="container">
-                <?php include './includes/advanced_search.php'; ?>
+                <?php include 'includes/advanced_search.php'; ?>
             </div>
         </div>
         <div id="footer">
             <div class="container">
-                <?php include 'includes/footer.php'; ?>
+                <?php include '../../includes/footer.php'; ?>
             </div>
         </div>
     </body>
