@@ -1,5 +1,5 @@
 <div id="side_link">
-    <h3>Link Utili</h4>
+    <h3>Link Utili</h3>
     <ul>
         <li><a href="/~roberto/CoLi/opac/support/netiquette.php">Netiquette</a></li>
         <li><a href="#">Privacy</a></li>
