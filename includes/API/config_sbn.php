@@ -22,5 +22,6 @@ if (yaz_error($_SBN['server']) != ""){
 }
 
 yaz_syntax($conn, $_SBN['syntax']);
+yaz_ccl_conf($conn, $_SBN['fields']);
 
 ?>

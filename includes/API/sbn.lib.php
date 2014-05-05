@@ -21,9 +21,11 @@ if (yaz_error($session) != ""){
     die("Error: " . yaz_error($session));
 }
 // configure desired result syntax (must be specified in Target Profile)
-yaz_syntax($session, $syntax);*/
+yaz_syntax($session, $syntax);
 // configure YAZ's CCL parser with the mapping from above
 yaz_ccl_conf($session, $fields);
+ * 
+ */
 // define a query using CCL (allowed operators are 'and', 'or', 'not')
 // available fields are the ones in $fields (again see Target Profile)
 $ccl_query = "(wpe = Liggesmeyer) and (wpe = Peter)";
