@@ -12,6 +12,10 @@ body {
     font-size: 14px;
 }
 
+h1,h2,h3,h4,h5,h6,p {
+    padding: 15px;
+}
+
 div {
     display: block;
 }
@@ -78,12 +82,14 @@ div {
 #Logo_site {
     float: left;
     display: inline-block;
+    margin-top: -10px;
 }
 #Title_site {
     float: left;
     margin-left: 40px;
 }
 #Title_site h1 {
+    padding: 0;
     margin-bottom: 10px;
 }
 
@@ -93,7 +99,7 @@ div {
     border-collapse: separate;
 }
 
-.input_group {
+.input_group, .input_field {
     position: relative;
     display: table;
     border-collapse: separate;
@@ -116,11 +122,19 @@ div {
     background-color: #eeeeee;
     border: 1px solid #cccccc;
 }
+.input_button:focus,
+.input_button:hover,
+.input_button:active {
+    cursor: pointer;
+    color: #333333;
+    background-color: #ebebeb;
+    border-color: #9c9c9c;
+}
 .input_form {
     padding: 6px 12px;
     border: 1px solid #cccccc;
 }
-.input_addon, .input_form, .input_button {
+.input_addon, .input_form, .input_button, .input_checkbox, .input_label {
     float: left;
 }
 #Search_form input {
@@ -187,12 +201,6 @@ div {
     min-height: 100%;
 }
 
-.content_bucket {
-    padding: 15px;
-}
-.page_header {
-    
-}
 .faq {
     display: block;
 }
@@ -215,13 +223,16 @@ div {
     background-color: white;
 }
 .dialog_header {
-    padding: 15px;
-    border-bottom: 1px solid #e5e5e5;
     min-height: 16.42857143px;
 }
+.dialog_header, .page_header {
+    border-bottom: 1px solid #e5e5e5;
+}
+
 .dialog_header a{
     float: right;
-    margin-top: -20px;
+    margin-right: 10px;
+    margin-top: -40px;
 }
 .dialog_body img, .dialog_body input {
     float: left;

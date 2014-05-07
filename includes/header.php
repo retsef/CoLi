@@ -17,7 +17,7 @@
         <div id="Link_site">
             <ul>
                 <li><a href='#where_page'>Dove siamo</a></li>
-                <li><a href='#registration_page'>Registrati</a></li>
+                <li><a href='/~roberto/CoLi/opac/search/advanced_search.php'>Registrati</a></li>
                 <li><a href='#contact_page'>Contatti</a></li>
             </ul>
         </div>

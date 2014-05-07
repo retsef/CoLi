@@ -21,9 +21,7 @@
         </div>
         <div id="content">
             <div class="container">
-                <div class="content_bucket">
                     <?php include 'includes/help.php'; ?>
-                </div>
             </div>
         </div>
         <div id="footer">
