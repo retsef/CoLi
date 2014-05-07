@@ -7,7 +7,10 @@ I campi contrassegnati con un asterisco (*) sono obbligatori.</p>
 <form action="../advanced_search.php" method="post">
     <h4 class="page_header">Dati account</h4>
     <div class="input_field">
-        
+        <div>
+            
+        </div>
+        <div></div>
     </div>
     <h4 class="page_header">Informazioni anagrafiche</h4>
     <div class="input_field">

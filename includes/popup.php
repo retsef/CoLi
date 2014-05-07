@@ -8,7 +8,7 @@
                 </a>
             </div>
             <div class="dialog_body">
-                <form action="/~roberto/CoLi/opac/support/login.php" method="post">
+                <form action="" method="post"> <!--Serve a reindirizzare il controllo su se stesso-->
                     <div class="input_group">
                         <img src="/~roberto/CoLi/resources/images/icon/user.png" alt="use_icon" class="input_addon">
                         <input type="text" placeholder="Username" name="username_box" class="input_form">
