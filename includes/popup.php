@@ -3,12 +3,12 @@
         <div class="dialog_content">
             <div class="dialog_header">
                 <h4>Login</h4>
-                <a href="#">
+                <a href="">
                     <img src="/~roberto/CoLi/resources/images/icon/close.png">
                 </a>
             </div>
             <div class="dialog_body">
-                <form action="" method="post"> <!--Serve a reindirizzare il controllo su se stesso-->
+                <form action="" method="post">
                     <div class="input_group">
                         <img src="/~roberto/CoLi/resources/images/icon/user.png" alt="use_icon" class="input_addon">
                         <input type="text" placeholder="Username" name="username_box" class="input_form">

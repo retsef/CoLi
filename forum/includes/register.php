@@ -9,21 +9,21 @@ I campi contrassegnati con un asterisco (*) sono obbligatori.</p>
     <div class="input_field">
         <div class="row">
             <div class="colum">
-                <p>Username<sup>*</sup></p>
+                <p>Username <sup>*</sup></p>
                 <input type="text" class="input_form">
             </div>
             <div class="colum">
-                <p>Email<sup>*</sup></p>
+                <p>Email <sup>*</sup></p>
                 <input type="text" class="input_form">
             </div>
         </div>
         <div class="row">
             <div class="colum">
-                <p>Password<sup>*</sup></p>
+                <p>Password <sup>*</sup></p>
                 <input type="text" class="input_form">
             </div>
             <div class="colum">
-                <p>Conferma Password<sup>*</sup></p>
+                <p>Conferma Password <sup>*</sup></p>
                 <input type="text" class="input_form">
             </div>
         </div>
@@ -42,11 +42,11 @@ I campi contrassegnati con un asterisco (*) sono obbligatori.</p>
         </div>
         <div class="row">
             <div class="colum">
-                <p>Password</p>
+                <p>Giggiole</p>
                 <input type="text" class="input_form">
             </div>
             <div class="colum">
-                <p>Conferma Password</p>
+                <p>Frollini!</p>
                 <input type="text" class="input_form">
             </div>
         </div>
@@ -71,7 +71,10 @@ I campi contrassegnati con un asterisco (*) sono obbligatori.</p>
     <div class="input_field">
         <div class="row">
             <div class="colum">
-                
+                <div class="colum">
+                    <p>Numero <sup>*</sup></p>
+                    <input type="text" class="input_form">
+                </div>
             </div>
         </div>
     </div>
