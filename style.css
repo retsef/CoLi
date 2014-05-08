@@ -16,8 +16,35 @@ h1,h2,h3,h4,h5,h6,p {
     padding: 15px;
 }
 
+sup {
+    
+}
+
 div {
     display: block;
+}
+
+input {
+    border-radius: 4px;
+}
+
+.row {
+    
+}
+.colum {
+    float: left;
+    margin: 0 10px;
+}
+
+.colum .input_form {
+    width: 300px;
+}
+
+button {
+    padding: 6px 12px;
+    background-color: #eeeeee;
+    border: 1px solid #cccccc;
+    border-radius: 4px;
 }
 
 #overheader a, .main_header a, .nav_bar a {
@@ -98,6 +125,9 @@ div {
     display: table;
     border-collapse: separate;
 }
+#Title_site .input_form {
+    border-radius: 0;
+}
 
 .input_group, .input_field {
     position: relative;
@@ -116,11 +146,8 @@ div {
     //border-right: 0;
 }
 .input_button {
-    padding: 6px 12px;
-    border-bottom-right-radius: 4px;
-    border-top-right-radius: 4px;
-    background-color: #eeeeee;
-    border: 1px solid #cccccc;
+    border-bottom-left-radius: 0;
+    border-top-left-radius: 0;
 }
 .input_button:focus,
 .input_button:hover,
@@ -240,7 +267,7 @@ div {
 .dialog_body .input_form {
     border-top-right-radius: 4px;
     border-bottom-right-radius: 4px;
-    width: 450px;
+    width: 498px;
 }
 .dialog_body .input_group {
     margin-bottom: 15px;
