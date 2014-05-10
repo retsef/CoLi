@@ -83,5 +83,7 @@ I campi contrassegnati con un asterisco (*) sono obbligatori.</p>
         <p class="input_label">Dichiaro di aver letto le condizioni sulla Privacy</p>
         <sup class="input_label">*</sup>
     </div>
-    <button>Registrati</button>
+    <div style="margin: 15px; margin-left: 80%;">
+        <button>Registrati</button>
+    </div>
 </form>

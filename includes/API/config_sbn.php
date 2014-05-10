@@ -15,13 +15,13 @@ $_SBN['fields'] = array("wti" => "1=4",
                         "wpe"   => "1=1004",
                         "wve"   => "1=1018");
 
-$conn = yaz_connect($_SBN['server']);
+$session = yaz_connect($_SBN['server']);
 // check whether an error occurred
 if (yaz_error($_SBN['server']) != ""){
     die("Error: " . yaz_error($_SBN['server']));
 }
 
-yaz_syntax($conn, $_SBN['syntax']);
-yaz_ccl_conf($conn, $_SBN['fields']);
+yaz_syntax($session, $_SBN['syntax']);
+yaz_ccl_conf($session, $_SBN['fields']);
 
 ?>

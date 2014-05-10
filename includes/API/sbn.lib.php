@@ -28,37 +28,42 @@ yaz_ccl_conf($session, $fields);
  */
 // define a query using CCL (allowed operators are 'and', 'or', 'not')
 // available fields are the ones in $fields (again see Target Profile)
-$ccl_query = "(wpe = Liggesmeyer) and (wpe = Peter)";
-// let YAZ parse the query and check for error
-if (!yaz_ccl_parse($session, $ccl_query, &$ccl_result)){
-        die("The query could not be parsed.");
-} else{
-    // fetch RPN result from the parser
-    $rpn = $ccl_result["rpn"];
-    // do the actual query
-    yaz_search($session, "rpn", $rpn);
-    // wait blocks until the query is done
-    yaz_wait();
-    if (yaz_error($session) != ""){
-        die("Error: " . yaz_error($session));
+//$ccl_query = "(wpe = Liggesmeyer) and (wpe = Peter)";
+function sbn_search($ccl_query) {
+    global $_SBN;
+    // let YAZ parse the query and check for error
+    if (!yaz_ccl_parse($session, $ccl_query, &$ccl_result)){
+            die("The query could not be parsed.");
+    } else{
+        // fetch RPN result from the parser
+        $rpn = $ccl_result["rpn"];
+        // do the actual query
+        yaz_search($session, "rpn", $rpn);
+        // wait blocks until the query is done
+        yaz_wait();
+        if (yaz_error($session) != ""){
+            die("Error: " . yaz_error($session));
+        }
+        // yaz_hits returns the amount of found records
+        if (yaz_hits($session) > 0){
+            echo "Found some hits:<br>";
+            // yaz_record fetches a record from the current result set,
+            // so far I've only seen server supporting string format
+            $result = yaz_record($session, 1, "string");
+            print($result);
+            echo "<br><br>";
+            // the parsing functions will be introduced later
+            if($_SBN['syntax'] == "mab") {
+                $parsedResult = parse_mab_string($result);
+            } else {
+                $parsedResult = parse_usmarc_string($result);
+            }
+            print_r($parsedResult);
+        } else
+            echo "No records found.";
     }
-    // yaz_hits returns the amount of found records
-    if (yaz_hits($session) > 0){
-        echo "Found some hits:<br>";
-        // yaz_record fetches a record from the current result set,
-        // so far I've only seen server supporting string format
-        $result = yaz_record($session, 1, "string");
-        print($result);
-        echo "<br><br>";
-        // the parsing functions will be introduced later
-        if($syntax == "mab")
-            $parsedResult = parse_mab_string($result);
-        else
-            $parsedResult = parse_usmarc_string($result);
-        print_r($parsedResult);
-    } else
-        echo "No records found.";
 }
+
    
 function parse_mab_string($record){
     $result = array();
