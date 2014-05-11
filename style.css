@@ -59,6 +59,21 @@ button {
     margin-left: auto;
     width: 1170px;
 }
+@media (min-width: 768px) {
+  .container {
+    width: 750px;
+  }
+}
+@media (min-width: 992px) {
+  .container {
+    width: 970px;
+  }
+}
+@media (min-width: 1200px) {
+  .container {
+    width: 1170px;
+  }
+}
 
 #overheader {
     position: fixed;
@@ -116,6 +131,11 @@ button {
 #Title_site {
     float: left;
     margin-left: 40px;
+}
+@media (min-width: 768px) and (max-width: 991px) {
+    #Title_site {
+        margin-left: 0;
+    }
 }
 #Title_site h1 {
     padding: 0;
