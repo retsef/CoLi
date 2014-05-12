@@ -30,7 +30,7 @@ yaz_ccl_conf($session, $fields);
 // available fields are the ones in $fields (again see Target Profile)
 //$ccl_query = "(wpe = Liggesmeyer) and (wpe = Peter)";
 function sbn_search($ccl_query) {
-    global $_SBN;
+    //global $_SBN;
     // let YAZ parse the query and check for error
     if (!yaz_ccl_parse($session, $ccl_query, &$ccl_result)){
             die("The query could not be parsed.");

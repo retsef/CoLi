@@ -3,7 +3,7 @@
     <head>
         <meta charset="UTF-8">
         <link type="text/css" rel="stylesheet" href="/~roberto/CoLi/style.css">
-        <link rel="icon" href="/~roberto/CoLi/resources/images/Book.png"/>
+        <link rel="icon" href="/~roberto/CoLi/resources/images/Hummingbird.png"/>
         <title>OPAC-Biblioteca Sassinoro</title>
     </head>
     <body>
@@ -31,7 +31,12 @@
         </div>
         <div id="content">
             <div class="container">
-                <?php include ''; ?>
+                <?php 
+                    include_once("../../includes/API/config_sbn.php");
+                    include_once("../../includes/API/sbn.lib.php");
+                    
+                    sbn_search($_POST['search_box']);
+                ?>
             </div>
         </div>
         <div id="footer">

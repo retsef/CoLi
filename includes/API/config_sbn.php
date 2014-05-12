@@ -6,7 +6,7 @@ $_SBN['dbname'] = "nopac";
 
 $_SBN['server'] = $_SBN['url'] . ":" . $_SBN['port'] . "/" . $_SBN['dbname'];
 
-$_SBN['syntax'] = "UNIMARC";
+$_SBN['syntax'] = "unimarc";
 
 $_SBN['fields'] = array("wti" => "1=4",
                         "ibn" => "1=7",
