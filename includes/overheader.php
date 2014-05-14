@@ -14,5 +14,5 @@
         break;
     }
     ?>
-    <li><a href='/~roberto/CoLi/opac/support/help.php'>Aiuto</a></li>
+    <li><a href='/CoLi/opac/support/help.php'>Aiuto</a></li>
 </ul>
