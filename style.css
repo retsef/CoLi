@@ -160,6 +160,9 @@ input {
 .icon{
     width: 1.07143em;
 }
+.icon_search { content: url("./resources/images/icon/search.png"); }
+.icon_user { content: url("./resources/images/icon/user.png"); }
+.icon_psw { content: url("./resources/images/icon/key.png"); }
 
 .btn {
     padding: 6px 12px;

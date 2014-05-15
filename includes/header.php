@@ -8,7 +8,7 @@
             <div class="input_group">
                 <form action="/CoLi/opac/search/result_search.php" method="post">
                     <div class="input_group_addon">
-                        <img src="/CoLi/resources/images/icon/search.png" class="icon">
+                        <img class="icon icon_search">
                     </div>
                     <input type="text" placeholder="Ricerca nel catalogo" name="search_box" class="input_group_form">
                     <div class="input_group_btn">

@@ -11,13 +11,13 @@
                 <form action="">
                     <div class="input_group">
                         <div class="input_group_addon">
-                            <img src="/CoLi/resources/images/icon/user.png" class="icon">
+                            <img class="icon icon_user">
                         </div>
                         <input type="text" placeholder="Username" name="username_box" class="input_group_form">
                     </div>
                     <div class="input_group">
                         <div class="input_group_addon">
-                            <img src="/CoLi/resources/images/icon/key.png" class="icon">
+                            <img class="icon icon_psw">
                         </div>
                         <input type="password" placeholder="Password" name="password_box" class="input_group_form">
                     </div>
