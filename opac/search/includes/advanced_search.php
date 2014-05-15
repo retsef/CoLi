@@ -18,7 +18,7 @@
                 <option value="ISBN">Codice ISBN</option>
                 <option value="ISSN">Codice ISSN</option>
             </select>
-            <input type="text" class="input_form" style="float: none;">
+            <input type="text" class="input_group_form" style="float: none;">
         </div>
         <div class="row">
             <select name="search_target" >
@@ -28,7 +28,7 @@
                 <option value="ISBN">Codice ISBN</option>
                 <option value="ISSN">Codice ISSN</option>
             </select>
-            <input type="text" class="input_form" style="float: none;">
+            <input type="text" class="input_group_form" style="float: none;">
         </div>
         <div class="row">
             <select name="search_target" >
@@ -38,7 +38,7 @@
                 <option value="ISBN">Codice ISBN</option>
                 <option value="ISSN">Codice ISSN</option>
             </select>
-            <input type="text" class="input_form" style="float: none;">
+            <input type="text" class="input_group_form" style="float: none;">
         </div>
     </div>
 </div>

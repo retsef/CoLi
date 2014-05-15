@@ -32,10 +32,67 @@
         <div id="content">
             <div class="container">
                 <?php 
-                    include_once("../../includes/API/config_sbn.php");
-                    include_once("../../includes/API/sbn.lib.php");
+                    //include_once("../../includes/API/config_sbn.php");
+                    //include_once("../../includes/API/sbn.lib.php");
                     
-                    sbn_search($_POST['search_box']);
+                    //sbn_search($_POST['search_box']);
+                    
+                    $fields = array("wti" => "1=4",
+                        "ibn" => "1=7",
+                        "isn"   => "1=8",
+                        "wja"   => "1=31",
+                        "wpe"   => "1=1004",
+                        "wve"   => "1=1018");
+                
+                    $ccl_result = array();
+                    //$ccl_query = "(wpe = Liggesmeyer) and (wpe = Peter)";
+                    $ccl_query = $_POST['search_box'];
+                    
+                    $conn = yaz_connect("opac.sbn.it:2100/nopac");
+                    //yaz_syntax($session, "unimarc");
+                    yaz_ccl_conf($session, $fields);
+
+                    // Parse the CCL query into yaz's native format
+                    $result = yaz_ccl_parse($conn, $ccl_query, $ccl_results);
+                    if (!$result) {
+                        echo "Error: " . $ccl_results['errorstring'];
+                        exit();
+                    }
+
+                    // Submit the query
+                    $rpn = $ccl_results['rpn'];
+                    yaz_search($conn, 'rpn', $rpn);
+                    yaz_wait();
+
+                    // Any errors trying to retrieve this record?
+                    $error = yaz_error($conn);
+                    if ($error) {
+                        print "Error: $error\n";
+                        exit();
+                    }
+
+                    // yaz_hits returns the amount of found records
+                    if (yaz_hits($conn) > 0){
+                        $hits = yaz_hits($conn);
+                        echo "Found $hits hits:<br><br>";
+                        // yaz_record fetches a record from the current result set,
+                        // so far I've only seen server supporting string format
+                        for($i=1; $i<$hits; $i++) {
+                            $result = yaz_record($conn, $i, "string");
+                            print($result);
+                            echo "<br><br>";
+                        }
+                        // the parsing functions will be introduced later
+                        //if($_SBN['syntax'] == "mab") {
+                        //    $parsedResult = parse_mab_string($result);
+                        //} else {
+                        //    $parsedResult = parse_usmarc_string($result);
+                        //}
+                        //print_r($parsedResult);
+                    } else {
+                        echo "No records found.";
+                    }
+
                 ?>
             </div>
         </div>

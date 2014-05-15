@@ -7,9 +7,13 @@
             <h1><a>Sistema Bibliotecario Sassinoro</a></h1>
             <div class="input_group">
                 <form action="/CoLi/opac/search/result_search.php" method="post">
-                    <img src="/CoLi/resources/images/icon/search.png" alt="search_icon" class="input_addon">
-                    <input type="text" placeholder="Ricerca nel catalogo" name="search_box" class="input_form">
-                    <button type="submit" name="submit" class="input_button">Cerca</button>
+                    <div class="input_group_addon">
+                        <img src="/CoLi/resources/images/icon/search.png" class="icon">
+                    </div>
+                    <input type="text" placeholder="Ricerca nel catalogo" name="search_box" class="input_group_form">
+                    <div class="input_group_btn">
+                        <button type="submit" name="submit" class="btn btn_default">Cerca</button>
+                    </div>
                 </form>
             </div>
             <a href='/CoLi/opac/search/advanced_search.php'>Ricerca avanzata</a>

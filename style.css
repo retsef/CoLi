@@ -38,15 +38,8 @@ input {
     margin: 0 10px;
 }
 
-.colum .input_form {
+.colum .input_group_form {
     width: 300px;
-}
-
-button {
-    padding: 6px 12px;
-    background-color: #eeeeee;
-    border: 1px solid #cccccc;
-    border-radius: 4px;
 }
 
 #overheader a, .main_header a, .nav_bar a, #footer * {
@@ -141,7 +134,7 @@ button {
     padding: 0;
     margin-bottom: 10px;
 }
-#Title_site .input_form {
+#Title_site .input_group_form {
     border-radius: 0;
 }
 
@@ -150,40 +143,79 @@ button {
     display: table;
     border-collapse: separate;
 }
-.input_addon {
-    padding: 6.5px 13px;
+.input_group_addon {
+    font-size: 14px;
+    color: #555;
+}
+.input_group_addon {
+    padding: 6px 12px;
     margin-bottom: -11px;
     border-bottom-left-radius: 4px;
     border-top-left-radius: 4px;
+    
     background-color: #eeeeee;
     border: 1px solid #cccccc;
 }
-.input_addon:first-child {
-    //border-right: 0;
+
+.icon{
+    width: 1.07143em;
 }
-.input_button {
+
+.btn {
+    padding: 6px 12px;
+    border-radius: 4px;
+    
+    background-image: none;
+    border: 1px solid #cccccc;
+    
+    color: #333333;
+    background-color: #ffffff;
+    border-color: #bbbbbb;
+    
+    //display: inline-block;
+    //margin-bottom: 0;
+    //font-weight: normal;
+    //text-align: center;
+    //vertical-align: middle;
+    cursor: pointer;
+    
+    font-size: 14px;
+    line-height: 1.42857143;
+}
+.btn_default {
     border-bottom-left-radius: 0;
     border-top-left-radius: 0;
 }
-.input_button:focus,
-.input_button:hover,
-.input_button:active {
+.btn_default:focus,
+.btn_default:hover,
+.btn_default:active {
     cursor: pointer;
     color: #333333;
     background-color: #ebebeb;
     border-color: #9c9c9c;
 }
-.input_form {
+
+.inpu_group_btn {
+    
+}
+.input_group_form {
     padding: 6px 12px;
     border: 1px solid #cccccc;
+    
+    font-size: 14px;
+    line-height: 1.42857143;
+    color: #555555;
+    background-color: #ffffff;
+    background-image: none;
+    
+    box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
 }
-.input_addon, .input_form, .input_button, .input_checkbox, .input_label {
+.input_group_addon, .input_group_form, .input_group_btn, .input_checkbox, .input_label {
     float: left;
 }
 .input_select {
     
 }
-
 //
 #Search_form input {
     width: 220px;
@@ -302,7 +334,7 @@ button {
 .dialog_body img, .dialog_body input {
     float: left;
 }
-.dialog_body .input_form {
+.dialog_body .input_group_form {
     border-top-left-radius: 0px;
     border-bottom-left-radius: 0px;
     width: 498px;
@@ -310,7 +342,7 @@ button {
 .dialog_body .input_group {
     margin-bottom: 15px;
 }
-.dialog_body .input_button {
+.dialog_body .input_group_btn {
     border-top-left-radius: 4px;
     border-bottom-left-radius: 4px;
     

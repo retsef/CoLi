@@ -10,12 +10,16 @@
             <div class="dialog_body">
                 <form action="">
                     <div class="input_group">
-                        <img src="/CoLi/resources/images/icon/user.png" alt="use_icon" class="input_addon">
-                        <input type="text" placeholder="Username" name="username_box" class="input_form">
+                        <div class="input_group_addon">
+                            <img src="/CoLi/resources/images/icon/user.png" class="icon">
+                        </div>
+                        <input type="text" placeholder="Username" name="username_box" class="input_group_form">
                     </div>
                     <div class="input_group">
-                        <img src="/CoLi/resources/images/icon/key.png" alt="key_icon" class="input_addon">
-                        <input type="password" placeholder="Password" name="password_box" class="input_form">
+                        <div class="input_group_addon">
+                            <img src="/CoLi/resources/images/icon/key.png" class="icon">
+                        </div>
+                        <input type="password" placeholder="Password" name="password_box" class="input_group_form">
                     </div>
                     <?php
                     
@@ -74,8 +78,8 @@
                     }
 
                     ?>
-                    <div>
-                        <button type="submit" name="login_btn" class="input_button">Login</button>
+                    <div class="input_group_btn">
+                        <button type="submit" name="login_btn" class="btn">Login</button>
                     </div>
                 </form>
             </div>
