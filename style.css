@@ -339,6 +339,9 @@ input {
     border-bottom-left-radius: 0px;
     width: 498px;
 }
+.dialog_body .input_group_addon {
+    padding: 8px 12px;
+}
 .dialog_body .input_group {
     margin-bottom: 15px;
 }

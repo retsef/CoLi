@@ -1,4 +1,4 @@
-<h2 class="page_header">Aiuto</h2>
+<h2 class="page_header">Registrazione</h2>
 <p>Compilando questo modulo di pre-iscrizione è possibile velocizzare le procedure di accesso ai servizi del Sistema Bibliotecario.<br>
     Una volta compilato il modulo ...<!--sarà comunque necessario recarsi presso la biblioteca preferita per completare la procedura di iscrizione--><br>
     Usa questo modulo solo se non ti sei mai iscritto.<br>
