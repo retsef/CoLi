@@ -36,7 +36,7 @@
                     //include_once("../../includes/API/sbn.lib.php");
                     
                     //sbn_search($_POST['search_box']);
-                    
+                
                     $fields = array("wti" => "1=4",
                         "ibn" => "1=7",
                         "isn"   => "1=8",
@@ -48,37 +48,39 @@
                     //$ccl_query = "(wpe = Liggesmeyer) and (wpe = Peter)";
                     $ccl_query = $_POST['search_box'];
                     
-                    $conn = yaz_connect("opac.sbn.it:2100/nopac");
-                    //yaz_syntax($session, "unimarc");
-                    yaz_ccl_conf($session, $fields);
+                    $sbn = yaz_connect("opac.sbn.it:2100/nopac");
+                    //yaz_syntax($conn, "unimarc");
+                    //yaz_ccl_conf($conn, $fields);
 
                     // Parse the CCL query into yaz's native format
-                    $result = yaz_ccl_parse($conn, $ccl_query, $ccl_results);
+                    $result = yaz_ccl_parse($sbn, $ccl_query, $ccl_results);
                     if (!$result) {
-                        echo "Error: " . $ccl_results['errorstring'];
+                        echo "Error ccl: " . $ccl_results['errorstring'];
                         exit();
                     }
 
                     // Submit the query
                     $rpn = $ccl_results['rpn'];
-                    yaz_search($conn, 'rpn', $rpn);
+                    yaz_search($sbn, 'rpn', $rpn);
                     yaz_wait();
 
                     // Any errors trying to retrieve this record?
-                    $error = yaz_error($conn);
+                    $error = yaz_error($sbn);
                     if ($error) {
                         print "Error: $error\n";
                         exit();
                     }
 
                     // yaz_hits returns the amount of found records
-                    if (yaz_hits($conn) > 0){
-                        $hits = yaz_hits($conn);
-                        echo "Found $hits hits:<br><br>";
+                    $hits = yaz_hits($sbn);
+                    if ($hits > 0){
+                        echo "Found $hits hits:<br>";
                         // yaz_record fetches a record from the current result set,
                         // so far I've only seen server supporting string format
-                        for($i=1; $i<$hits; $i++) {
-                            $result = yaz_record($conn, $i, "string");
+                        $result = yaz_record($sbn, 1, "string");
+                        if (!$result) {
+                            echo "Cant get record";
+                        } else {
                             print($result);
                             echo "<br><br>";
                         }
@@ -89,9 +91,8 @@
                         //    $parsedResult = parse_usmarc_string($result);
                         //}
                         //print_r($parsedResult);
-                    } else {
+                    } else
                         echo "No records found.";
-                    }
 
                 ?>
             </div>

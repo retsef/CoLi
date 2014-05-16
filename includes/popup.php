@@ -11,13 +11,13 @@
                 <form action="">
                     <div class="input_group">
                         <div class="input_group_addon">
-                            <img class="icon icon_user">
+                            <img src="/CoLi/resources/images/icon/user.png" class="icon" alt="user">
                         </div>
                         <input type="text" placeholder="Username" name="username_box" class="input_group_form">
                     </div>
                     <div class="input_group">
                         <div class="input_group_addon">
-                            <img class="icon icon_psw">
+                            <img src="/CoLi/resources/images/icon/key.png" class="icon" alt="password">
                         </div>
                         <input type="password" placeholder="Password" name="password_box" class="input_group_form">
                     </div>
@@ -43,31 +43,31 @@
                         if(isset($_GET['login_btn'])){
                             switch($status){
                             case AUTH_LOGGED:
-                                //header("Refresh: 5;URL=home.php");
+                                header("Refresh: 1;URL=index.php");
                                 echo '<div align="center">Sei gia connesso</div>';
                                 break;
                             case AUTH_INVALID_PARAMS:
-                                //header("Refresh: 5;URL=home.php");
+                                header("Refresh: 1;URL=index.php");
                                 echo '<div align="center">Hai inserito dati non corretti</div>';
                                 break;
                             case AUTH_LOGEDD_IN:
                                 switch(auth_get_option("TRANSICTION METHOD")){
                                     case AUTH_USE_LINK:
-                                        //header("Refresh: 5;URL=home.php?uid=".$uid);
+                                        header("Refresh: 1;URL=index.php?uid=".$uid);
                                     break;
                                     case AUTH_USE_COOKIE:
-                                        //header("Refresh: 5;URL=home.php");
-                                        //setcookie('uid', $uid, time()+3600*365);
+                                        header("Refresh: 1;URL=index.php");
+                                        setcookie('uid', $uid, time()+(3600*365) );
                                     break;
                                     case AUTH_USE_SESSION:
-                                        //eader("Refresh: 5;URL=home.php");
+                                        header("Refresh: 1;URL=index.php");
                                         $_SESSION['uid'] = $uid;
                                     break;
                                 }
                                 echo '<div align="center">Ciao '.$user['name'].'</div>';
                                 break;
                             case AUTH_FAILED:
-                                //header("Refresh: 5;URL=home.php");
+                                header("Refresh: 1;URL=index.php");
                                 echo '<div align="center">Fallimento durante il tentativo di connessione</div>';
                                 break;
                             default:
