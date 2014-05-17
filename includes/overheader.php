@@ -6,6 +6,7 @@
         case AUTH_LOGGED:
     ?>
     <li>Benvenuto <?=$user["name"];?></li>
+    <li><a href="/CoLi/forum/control.php<?=$link?>">Gestione</a></li>
     <li><a href="/CoLi/forum/logout.php<?=$link?>">Logout</a></li>
     <?php
         break;

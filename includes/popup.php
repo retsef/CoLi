@@ -4,7 +4,7 @@
             <div class="dialog_header">
                 <h4>Login</h4>
                 <a href="">
-                    <img src="/CoLi/resources/images/icon/close.png">
+                    <img src="/CoLi/resources/images/icon/close.png" alt="close">
                 </a>
             </div>
             <div class="dialog_body">
@@ -47,7 +47,7 @@
                                 echo '<div align="center">Sei gia connesso</div>';
                                 break;
                             case AUTH_INVALID_PARAMS:
-                                header("Refresh: 1;URL=index.php");
+                                //header("Refresh: 1;URL=index.php");
                                 echo '<div align="center">Hai inserito dati non corretti</div>';
                                 break;
                             case AUTH_LOGEDD_IN:
@@ -67,7 +67,7 @@
                                 echo '<div align="center">Ciao '.$user['name'].'</div>';
                                 break;
                             case AUTH_FAILED:
-                                header("Refresh: 1;URL=index.php");
+                                //header("Refresh: 1;URL=index.php");
                                 echo '<div align="center">Fallimento durante il tentativo di connessione</div>';
                                 break;
                             default:

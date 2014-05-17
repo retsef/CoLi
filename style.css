@@ -42,7 +42,7 @@ input {
     width: 300px;
 }
 
-#overheader a, .main_header *, .nav_bar a, #footer * {
+#overheader *, .main_header *, .nav_bar a, #footer * {
     color: white;
     text-decoration: none;
 }
