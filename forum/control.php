@@ -2,7 +2,7 @@
 <html>
     <head>
         <meta charset="UTF-8">
-        <link type="text/css" rel="stylesheet" href="/CoLi/style.css">
+        <link type="text/css" rel="stylesheet" href="style.css">
         <link rel="icon" href="/CoLi/resources/images/Hummingbird.png"/>
         <title>OPAC-Biblioteca Sassinoro</title>
     </head>

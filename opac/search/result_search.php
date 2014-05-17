@@ -49,8 +49,8 @@
                     $ccl_query = $_POST['search_box'];
                     
                     $sbn = yaz_connect("opac.sbn.it:2100/nopac");
-                    //yaz_syntax($conn, "unimarc");
-                    //yaz_ccl_conf($conn, $fields);
+                    yaz_syntax($sbn, "unimarc");
+                    yaz_ccl_conf($sbn, $fields);
 
                     // Parse the CCL query into yaz's native format
                     $result = yaz_ccl_parse($sbn, $ccl_query, $ccl_results);
@@ -74,7 +74,7 @@
                     // yaz_hits returns the amount of found records
                     $hits = yaz_hits($sbn);
                     if ($hits > 0){
-                        echo "Found $hits hits:<br>";
+                        echo "Found $hits hits:<br><br>";
                         // yaz_record fetches a record from the current result set,
                         // so far I've only seen server supporting string format
                         $result = yaz_record($sbn, 1, "string");
