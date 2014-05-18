@@ -84,6 +84,6 @@ I campi contrassegnati con un asterisco (*) sono obbligatori.</p>
         <sup class="input_label">*</sup>
     </div>
     <div style="margin: 15px; margin-left: 80%;">
-        <button>Registrati</button>
+        <button class="btn" >Registrati</button>
     </div>
 </form>

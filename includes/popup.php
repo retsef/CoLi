@@ -4,7 +4,7 @@
             <div class="dialog_header">
                 <h4>Login</h4>
                 <a href="">
-                    <img src="/CoLi/resources/images/icon/close.png" alt="close">
+                    <img src="/CoLi/resources/images/icon/close.png" class="icon" alt="close">
                 </a>
             </div>
             <div class="dialog_body">

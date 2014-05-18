@@ -47,6 +47,10 @@ input {
     text-decoration: none;
 }
 
+#header, #footer {
+    background: #8abb21;
+}
+
 .container {
     margin-right: auto;
     margin-left: auto;
@@ -106,7 +110,6 @@ input {
 
 #header {
     position: relative;
-    background: #8abb21;
     display: block;
     width: auto;
     height: 180px;
@@ -136,6 +139,7 @@ input {
 }
 #Title_site .input_group_form {
     border-radius: 0;
+    width: 350px;
 }
 
 .input_group, .input_field {
@@ -328,6 +332,9 @@ input {
 .dialog_header, .page_header {
     border-bottom: 1px solid #e5e5e5;
 }
+.dialog_header img {
+    margin: 8px;
+}
 
 .dialog_header a{
     float: right;
@@ -361,7 +368,6 @@ input {
 
 #footer {
     position: absolute;
-    background: #8abb21;
     z-index: -1000;
     width: 100%;
     height: 175px;

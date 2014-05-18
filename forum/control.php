@@ -2,9 +2,9 @@
 <html>
     <head>
         <meta charset="UTF-8">
-        <link type="text/css" rel="stylesheet" href="style.css">
+        <link type="text/css" rel="stylesheet" href="control_style.css">
         <link rel="icon" href="/CoLi/resources/images/Hummingbird.png"/>
-        <title>OPAC-Biblioteca Sassinoro</title>
+        <title>OPAC-Dashboard</title>
     </head>
     <body>
         <?php
@@ -17,26 +17,15 @@
                     $link = "?uid=".$_GET['uid'];
             }else	$link = '';
         ?>
-        <div id="overheader">
-            <div class="container">
-                <?php include '../includes/overheader.php'; ?>
-            </div>
+        <div id="sidebar">
+            <?php include 'includes/control_sidebar.php'; ?>
         </div>
         <div id="header">
-            <div class="container">
-                <?php include '../includes/header.php'; ?>
-                <?php include '../includes/nav.php'; ?>
-                <?php include '../includes/popup.php'; ?>
-            </div>
+            <?php include 'includes/control_header.php' ?>
         </div>
         <div id="content">
             <div class="container">
-                <?php include 'includes/control.php'; ?>
-            </div>
-        </div>
-        <div id="footer">
-            <div class="container">
-                <?php include 'includes/footer.php'; ?>
+                <?php include 'includes/control_front.php'; ?>
             </div>
         </div>
     </body>
