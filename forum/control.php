@@ -17,6 +17,9 @@
                     $link = "?uid=".$_GET['uid'];
             }else	$link = '';
         ?>
+        <div id="offsrceen">
+            <?php include 'includes/popup.php'; ?>
+        </div>
         <div id="sidebar">
             <?php include 'includes/control_sidebar.php'; ?>
         </div>

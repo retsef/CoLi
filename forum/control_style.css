@@ -121,6 +121,77 @@ input {
     float: left;
 }
 
+#offsrceen {}
+.overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    z-index: 1050;
+    opacity: 1;
+    outline: 0;
+    
+    background: rgba(0,0,0,0.7);
+}
+
+.overlay:target {
+    display: block;
+}
+
+.dialog {
+    position: relative;
+    width: 600px;
+    margin: 30px auto;
+}
+.dialog_content {
+    border-radius: 5px;
+    width: 600px;
+    height: 260px;
+    background-color: white;
+}
+.dialog_header {
+    min-height: 16.42857143px;
+}
+.dialog_header, .page_header {
+    border-bottom: 1px solid #e5e5e5;
+}
+.dialog_header img {
+    margin: 8px;
+}
+
+.dialog_header a{
+    float: right;
+    margin-right: 10px;
+    margin-top: -40px;
+}
+.dialog_body img, .dialog_body input {
+    float: left;
+}
+.dialog_body .input_group_form {
+    border-top-left-radius: 0px;
+    border-bottom-left-radius: 0px;
+    width: 498px;
+}
+.dialog_body .input_group_addon {
+    padding: 8px 12px;
+}
+.dialog_body .input_group {
+    margin-bottom: 15px;
+}
+.dialog_body .input_group_btn {
+    border-top-left-radius: 4px;
+    border-bottom-left-radius: 4px;
+    
+    float: right;
+}
+.dialog_body {
+    position: relative;
+    padding: 15px;
+}
+
+
 .container {
     margin-left: 170px;
     margin-top: 50px;
@@ -159,7 +230,8 @@ input {
     width: 170px;
     z-index: 510;
     
-    background-color: #ecf0f1;
+    
+    background: #E0E0E3 url(../resources/images/sidebar.png) repeat top;
     
 }
 #sidebar *{
@@ -172,17 +244,31 @@ input {
 }
 .menu p {
     padding: 12px 8px;
-    background: url(../resources/images/sidebar.png) repeat top;
+    
 }
 .menu ul {
     margin: 0;
     padding: 0;
+    margin-top: -5px;
+    padding-bottom: 5px;
 }
 .menu li {
-    
+    padding-left: 35px;
+}
+.menu * {
+    text-decoration: none;
 }
 .menu a {
-    
+    color: #555555;
+}
+
+.H_divider {
+    border: none;
+    outline: none;
+    background: url(../resources/images/sidebar_divider.png) repeat-x;
+    display: block;
+    width: 100%;
+    height: 2px;
 }
 
 #header {
@@ -191,8 +277,30 @@ input {
     
     background-color: #9c9c9c;
     
-    border-bottom: 1px solid #e7e7e7;
+    //border-bottom: 1px solid #e7e7e7;
 }
+#header .bucket {
+    margin-left: 170px;
+    
+}
+
+.stats {
+    
+}
+.info {
+    float: right;
+}
+.info ul {
+    
+}
+.info li {
+    list-style: none;
+    display: inline;
+}
+.info a {
+    
+}
+
 
 #content {
     height: 100%;
