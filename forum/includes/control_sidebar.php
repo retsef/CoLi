@@ -7,11 +7,11 @@
 <div class="menu">
     <h3>Menu'</h3>
     <ul>
-        <li><a href="#">link1</a></li>
-        <li><a href="#">link2</a></li>
+        <li><a href="./control.php?page=link1">link1</a></li>
+        <li><a href="./control.php?page=link2">link2</a></li>
     </ul>
     <h3>Servizi</h3>
     <ul>
-        <li><a href="#">Link3</a></li>
+        <li><a href="./control.php?page=user_manager">Gestionie utenti</a></li>
     </ul>
 </div>

@@ -28,7 +28,20 @@
         </div>
         <div id="content">
             <div class="container">
-                <?php include 'includes/control_front.php'; ?>
+                <?php
+                 switch($_GET['page'])
+                {
+                    case 'link1':
+                        include 'includes/control_front.php';
+                        break;
+                    case 'user_manager':
+                        include 'includes/control_user.php';
+                        break;
+                    default:
+                        echo "<div class=bucket> Pagina non trovata </div>";
+                        break;
+                }
+                ?>
             </div>
         </div>
     </body>

@@ -31,7 +31,7 @@
         </div>
         <div id="content">
             <div class="container">
-                <?php include 'includes/advanced_search.php'; ?>
+                <?php include 'includes/advanced_search_content.php'; ?>
             </div>
         </div>
         <div id="footer">

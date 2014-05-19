@@ -71,17 +71,16 @@ I campi contrassegnati con un asterisco (*) sono obbligatori.</p>
     <div class="input_field">
         <div class="row">
             <div class="colum">
-                <div class="colum">
-                    <p>Numero <sup>*</sup></p>
-                    <input type="text" class="input_group_form">
-                </div>
+                <p>Numero <sup>*</sup></p>
+                <input type="text" class="input_group_form">
             </div>
         </div>
     </div>
     <div class="input_field">
-        <input type="checkbox" class="input_checkbox">
-        <p class="input_label">Dichiaro di aver letto le condizioni sulla Privacy</p>
-        <sup class="input_label">*</sup>
+        <div class="row">
+            <input type="checkbox" class="input_checkbox" style="margin-top: 15px; margin-right: -5px;">
+            <p class="input_label">Dichiaro di aver letto le condizioni sulla Privacy <sup>*</sup></p>
+        </div>
     </div>
     <div style="margin: 15px; margin-left: 80%;">
         <button class="btn" >Registrati</button>
