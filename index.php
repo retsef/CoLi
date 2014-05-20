@@ -2,8 +2,8 @@
 <html>
     <head>
         <meta charset="UTF-8">
-        <link type="text/css" rel="stylesheet" href="/CoLi/style.css">
-        <link rel="icon" href="/CoLi/resources/images/Hummingbird.png"/>
+        <link type="text/css" rel="stylesheet" href="style.css">
+        <link rel="icon" href="resources/images/Hummingbird.png"/>
         <title>OPAC-Biblioteca Sassinoro</title>
     </head>
     <body>
@@ -31,7 +31,29 @@
         </div>
         <div id="content">
             <div class="container">
-                <?php include 'opac/home.php'; ?>
+                <?php
+                 switch($_GET['page'])
+                {
+                    case 'risultati_ricerca':
+                       include 'includes/risultati_ricerca.php';
+                       break;
+                    case 'ricerca_avanzata':
+                       include 'includes/ricerca_avanzata.php';
+                       break;
+                    case 'registrazione':
+                        include 'includes/registrazione.php';
+                        break;
+                    case 'help':
+                        include 'includes/help.php';
+                        break;
+                    case 'netiquette':
+                        include 'includes/netiquette.php';
+                        break;
+                    default:
+                        include 'includes/home.php';
+                        break;
+                }
+                ?>
             </div>
         </div>
         <div id="footer">

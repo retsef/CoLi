@@ -7,7 +7,7 @@
     ?>
     <li>Benvenuto <?=$user["name"];?></li>
     <li><a href="/CoLi/forum/control.php<?=$link?>">Gestione</a></li>
-    <li><a href="/CoLi/forum/logout.php<?=$link?>">Logout</a></li>
+    <li><a href="includes/logout.php<?=$link?>">Logout</a></li>
     <?php
         break;
         case AUTH_NOT_LOGGED:
@@ -17,5 +17,5 @@
         break;
     }
     ?>
-    <li><a href='/CoLi/opac/support/help.php'>Aiuto</a></li>
+    <li><a href='./index.php?page=help'>Aiuto</a></li>
 </ul>

@@ -8,7 +8,7 @@
                 </a>
             </div>
             <div class="dialog_body">
-                <form action="">
+                <form action="" method="post">
                     <div class="input_group">
                         <div class="input_group_addon">
                             <img src="/CoLi/resources/images/icon/user.png" class="icon" alt="user">
@@ -26,8 +26,8 @@
                     list($status, $user) = auth_get_status();
 
                     if($status == AUTH_NOT_LOGGED){
-                        $uname = strtolower(trim($_GET['username_box']));
-                        $passw = strtolower(trim($_GET['password_box']));
+                        $uname = strtolower(trim($_POST['username_box']));
+                        $passw = strtolower(trim($_POST['password_box']));
 
                         if($uname == "" or $passw == ""){
                             $status = AUTH_INVALID_PARAMS;
@@ -39,8 +39,8 @@
                         }
                     }
                     
-                    if($_GET){
-                        if(isset($_GET['login_btn'])){
+                    if($_POST){
+                        if(isset($_POST['login_btn'])){
                             switch($status){
                             case AUTH_LOGGED:
                                 header("Refresh: 1;URL=index.php");
@@ -57,7 +57,7 @@
                                     break;
                                     case AUTH_USE_COOKIE:
                                         header("Refresh: 1;URL=index.php");
-                                        setcookie('uid', $uid, time()+(3600*365) );
+                                        setcookie('uid', $uid);
                                     break;
                                     case AUTH_USE_SESSION:
                                         header("Refresh: 1;URL=index.php");
