@@ -15,8 +15,9 @@
 
 - [ ] Riorganizzare il css e i relativi tag presenti e futuri
 - [ ] Risolvere l'include di assegnazione delle funzioni di sbn.lib.php (provvedo)
-- [ ] Rimpiazzare i riferimenti php con il define ROOT
-
+- [x] Rimpiazzare i riferimenti php con il define ROOT (alternativa trovata)
+- [ ] Risolvere il logout
+- [ ] Risolvere la gestione del login trmite cookie
 - [ ] Aggiustare pagina di ricerca avanzata
 - [ ] Creare il parser per formato unimarc in sbn.lib.php
 - [ ] Creare vista a lista all'interno di result_search.php:
@@ -26,7 +27,7 @@
  - [ ] Impostare i metadati del libro
 - [ ] Definire il DB dei libri locali
 - [ ] Definire le informazioni relative ad un utente e trasporle nell'attuale DB
-- [ ] Creare il framework di gestione pagina utente:
+- [x] Creare il framework di gestione pagina utente:
  - [ ] Creare l'infrastuttura di gestione Amministratore
  - [ ] Creare la pagina di inserimento libri con opzionale ricerca nell'sbn
 
