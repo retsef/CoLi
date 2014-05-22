@@ -1,5 +1,5 @@
 <h2 class="page_header">Ricerca avanzata</h2>
-<form action="/~roberto/CoLi/opac/search/result_search.php" method="post">
+<form action="./index.php?page=risultati_ricerca" method="post">
 <div class="input_field">
     <div class="frame">
         <div class="frame_header">

@@ -23,7 +23,7 @@
                     </div>
                     <?php
                     
-                    list($status, $user) = auth_get_status();
+                    list($status, $user) = $auth->auth_get_status();
 
                     if($status == AUTH_NOT_LOGGED){
                         $uname = strtolower(trim($_POST['username_box']));
@@ -32,9 +32,9 @@
                         if($uname == "" or $passw == ""){
                             $status = AUTH_INVALID_PARAMS;
                         }else{
-                            list($status, $user) = auth_login($uname, $passw);
+                            list($status, $user) = $auth->auth_login($uname, $passw);
                             if(!is_null($user)){
-                                list($status, $uid) = auth_register_session($user);
+                                list($status, $uid) = $auth->auth_register_session($user);
                             }
                         }
                     }
@@ -51,7 +51,7 @@
                                 echo '<div align="center">Hai inserito dati non corretti</div>';
                                 break;
                             case AUTH_LOGEDD_IN:
-                                switch(auth_get_option("TRANSICTION METHOD")){
+                                switch($auth->auth_get_option("TRANSICTION METHOD")){
                                     case AUTH_USE_LINK:
                                         header("Refresh: 1;URL=index.php?uid=".$uid);
                                     break;

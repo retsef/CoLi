@@ -8,25 +8,26 @@
     </head>
     <body>
         <?php
-            include_once("includes/API/config_auth.php");
-            include_once("includes/API/auth.lib.php");
-
-            list($status, $user) = auth_get_status();
-
-            if($status == AUTH_LOGGED & auth_get_option("TRANSICTION METHOD") == AUTH_USE_LINK){
-                    $link = "?uid=".$_GET['uid'];
-            }else	$link = '';
+        /*
+            ini_set('display_errors', 1);
+            error_reporting(E_ALL | E_STRICT);
+        */
+            include_once("includes/api/db/auth/auth_manager.php");
+            
+            $auth = new auth_manager() or die("Error");
+            
+            $link = $auth->auth_check();
         ?>
         <div id="overheader">
             <div class="container">
-                <?php include 'includes/overheader.php'; ?>
+                <?php include 'includes/web/overheader.php'; ?>
             </div>
         </div>
         <div id="header">
             <div class="container">
-                <?php include 'includes/header.php'; ?>
-                <?php include 'includes/nav.php'; ?>
-                <?php include 'includes/popup.php'; ?>
+                <?php include 'includes/web/header.php'; ?>
+                <?php include 'includes/web/nav.php'; ?>
+                <?php include 'includes/web/popup.php'; ?>
             </div>
         </div>
         <div id="content">
@@ -35,22 +36,22 @@
                  switch($_GET['page'])
                 {
                     case 'risultati_ricerca':
-                       include 'includes/risultati_ricerca.php';
+                       include 'includes/web/risultati_ricerca.php';
                        break;
                     case 'ricerca_avanzata':
-                       include 'includes/ricerca_avanzata.php';
+                       include 'includes/web/ricerca_avanzata.php';
                        break;
                     case 'registrazione':
-                        include 'includes/registrazione.php';
+                        include 'includes/web/registrazione.php';
                         break;
                     case 'help':
-                        include 'includes/help.php';
+                        include 'includes/web/help.php';
                         break;
                     case 'netiquette':
-                        include 'includes/netiquette.php';
+                        include 'includes/web/netiquette.php';
                         break;
                     default:
-                        include 'includes/home.php';
+                        include 'includes/web/home.php';
                         break;
                 }
                 ?>
@@ -58,7 +59,7 @@
         </div>
         <div id="footer">
             <div class="container">
-                <?php include 'includes/footer.php'; ?>
+                <?php include 'includes/web/footer.php'; ?>
             </div>
         </div>
     </body>

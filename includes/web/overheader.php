@@ -1,6 +1,6 @@
 <ul>
     <?php
-    list($status, $user) = auth_get_status();
+    list($status, $user) = $auth->auth_get_status();
     
     switch($status){
         case AUTH_LOGGED:
