@@ -1,12 +1,13 @@
 <?php
 
-include_once("../includes/config.php");
-include_once("../includes/auth.lib.php");
+include_once("./includes/api/db/auth/auth_manager.php");
 
-list($status, $user) = auth_get_status();
+$auth = new auth_manager();
+
+list($status, $user) = $auth->auth_get_status();
 
 if ($status == AUTH_LOGGED) {
-    if (auth_logout()) {
+    if ($auth->auth_logout()) {
         header("Refresh: 1;URL=index.php");
         echo '<div align="center">Disconnessione effettuata ... attendi il reindirizzamento</div>';
     } else {

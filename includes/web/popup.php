@@ -26,7 +26,11 @@
                     list($status, $user) = $auth->auth_get_status();
 
                     if($status == AUTH_NOT_LOGGED){
+                        $uname = "";
+                        $passw = "";
+                        if(isset($_POST['username_box']))
                         $uname = strtolower(trim($_POST['username_box']));
+                        if(isset($_POST['password_box']))
                         $passw = strtolower(trim($_POST['password_box']));
 
                         if($uname == "" or $passw == ""){
@@ -57,7 +61,7 @@
                                     break;
                                     case AUTH_USE_COOKIE:
                                         header("Refresh: 1;URL=index.php");
-                                        setcookie('uid', $uid);
+                                        setcookie('uid', $uid, time()+3600*24*30);
                                     break;
                                     case AUTH_USE_SESSION:
                                         header("Refresh: 1;URL=index.php");

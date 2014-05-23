@@ -1,17 +1,33 @@
 <?php
 
-include_once './sbn_config.php';
+include 'sbn_config.php';
+/*
+$_SBN['url'] = "opac.sbn.it";
+$_SBN['port'] = 2100;
+$_SBN['dbname'] = "nopac";
+
+$_SBN['server'] = $_SBN['url'] . ":" . $_SBN['port'] . "/" . $_SBN['dbname'];
+//$_SBN['server'] = "opac.sbn.it:2100/nopac";
+
+$_SBN['syntax'] = "UNIMARC";
+
+$_SBN['fields'] = array("wti" => "1=4",
+                        "ibn" => "1=7",
+                        "isn"   => "1=8",
+                        "wja"   => "1=31",
+                        "wpe"   => "1=1004",
+                        "wve"   => "1=1018");
+*/
 
 class sbn_manager {
-
     var $conn;
 
-    public function __construct() {
+    function __construct() {
         global $_SBN;
-
+        
         $this->conn = yaz_connect($_SBN['server']);
 
-        $error = yaz_error($session);
+        $error = yaz_error($this->conn);
         if ($error) {
             throw new Exception("Errore nella connessione all'SBN: " . $error);
         }
@@ -26,8 +42,9 @@ class sbn_manager {
     function sbn_search($ccl_query) {
         global $_SBN;
         // let YAZ parse the query and check for error
-        if (!yaz_ccl_parse($this->conn, $ccl_query, &$ccl_result)) {
-            die("The query could not be parsed.");
+        $result = yaz_ccl_parse($this->conn, $ccl_query, $ccl_result);
+        if (!$result) {
+            throw new Exception("The query could not be parsed.");
         } else {
             // fetch RPN result from the parser
             $rpn = $ccl_result["rpn"];
@@ -56,8 +73,9 @@ class sbn_manager {
                 }
                 print_r($parsedResult);
                 */
-            } else
+            } else {
                 echo "No records found.";
+            }
         }
     }
 
@@ -74,8 +92,9 @@ class sbn_manager {
             $data = $record[$datnum];
             // the first 4 chars are the field id
             $field = substr($data, 0, 4);
-            if (!isset($result[$field]))
+            if (!isset($result[$field])) {
                 $result[$field] = array();
+            }
             // the remaining substring is the field value
             array_push($result[$field], substr($record[$datnum], 4));
         }
@@ -104,6 +123,10 @@ class sbn_manager {
         return str_replace($bad_chars, $rep_chars, $rep_string);
     }
 
+    function parse_unimarc_string($record) {
+        
+    }
+    
     function parse_usmarc_string($record) {
         $ret = array();
         // there was a case where angle brackets interfered
@@ -155,9 +178,11 @@ class sbn_manager {
 // fetches the value of a certain subfield given its label
     function get_subfield_value($parts, $subfield_label) {
         $ret = "";
-        foreach ($parts as $subfield)
-            if (substr($subfield, 0, 1) == $subfield_label)
+        foreach ($parts as $subfield) {
+            if (substr($subfield, 0, 1) == $subfield_label) {
                 $ret = substr($subfield, 2);
+            }
+        }
         return $ret;
     }
 

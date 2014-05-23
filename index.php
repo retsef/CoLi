@@ -1,3 +1,6 @@
+<?php
+ob_start();
+?>
 <!DOCTYPE html>
 <html>
     <head>
@@ -12,11 +15,12 @@
             ini_set('display_errors', 1);
             error_reporting(E_ALL | E_STRICT);
         */
-            include_once("includes/api/db/auth/auth_manager.php");
-            
-            $auth = new auth_manager() or die("Error");
-            
-            $link = $auth->auth_check();
+        define('ROOT_PATH', realpath(__DIR__));
+        
+        include_once("./includes/api/db/auth/auth_manager.php");
+
+        $auth = new auth_manager();
+        $link = $auth->auth_check();
         ?>
         <div id="overheader">
             <div class="container">

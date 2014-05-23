@@ -7,7 +7,7 @@
     ?>
     <li>Benvenuto <?=$user["name"];?></li>
     <li><a href="/CoLi/forum/control.php<?=$link?>">Gestione</a></li>
-    <li><a href="includes/logout.php<?=$link?>">Logout</a></li>
+    <li><a href="logout.php<?=$link?>">Logout</a></li>
     <?php
         break;
         case AUTH_NOT_LOGGED:

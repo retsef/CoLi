@@ -1,5 +1,31 @@
 <?php
-include_once './auth_config.php';
+
+include 'auth_config.php';
+/*
+$_CONFIG['host'] = "localhost";
+$_CONFIG['user'] = "root";
+$_CONFIG['pass'] = "";
+$_CONFIG['dbname'] = "users";
+
+$_CONFIG['table_sessioni'] = "sessioni";
+$_CONFIG['table_utenti'] = "utenti";
+
+$_CONFIG['expire'] = 60;
+
+//--------------
+define('AUTH_LOGGED', 99);
+define('AUTH_NOT_LOGGED', 100);
+
+define('AUTH_USE_COOKIE', 101);
+define('AUTH_USE_LINK', 103);
+define('AUTH_INVALID_PARAMS', 104);
+define('AUTH_LOGEDD_IN', 105);
+define('AUTH_FAILED', 106);
+
+$_AUTH = array(
+    "TRANSICTION METHOD" => AUTH_USE_COOKIE
+);
+*/
 
 class auth_manager {
     var $conn;
@@ -40,6 +66,7 @@ class auth_manager {
                             break;
                         case AUTH_USE_LINK:
                             global $_GET;
+                            if(isset($_GET['uid']))
                             $_GET['uid'] = NULL;
                             break;
                     }
@@ -60,10 +87,12 @@ class auth_manager {
         switch ($this->auth_get_option("TRANSICTION METHOD")) {
             case AUTH_USE_COOKIE:
                 global $_COOKIE;
+                if(isset($_COOKIE['uid']))
                 $uid = $_COOKIE['uid'];
                 break;
             case AUTH_USE_LINK:
                 global $_GET;
+                if(isset($_GET['uid']))
                 $uid = $_GET['uid'];
                 break;
         }
@@ -94,7 +123,7 @@ class auth_manager {
 
     function auth_login($uname, $passw) {
         global $_CONFIG;
-
+        
         $result = mysql_query("
 	SELECT *
 	FROM " . $_CONFIG['table_utenti'] . "
