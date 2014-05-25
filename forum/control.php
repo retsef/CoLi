@@ -8,23 +8,23 @@
     </head>
     <body>
         <?php
-            include_once("../includes/API/config_auth.php");
-            include_once("../includes/API/auth.lib.php");
+        /*
+            ini_set('display_errors', 1);
+            error_reporting(E_ALL | E_STRICT);
+        */
+            include_once("../includes/api/db/auth/auth_manager.php");
 
-            list($status, $user) = auth_get_status();
-
-            if($status == AUTH_LOGGED & auth_get_option("TRANSICTION METHOD") == AUTH_USE_LINK){
-                    $link = "?uid=".$_GET['uid'];
-            }else	$link = '';
+            $auth = new auth_manager();
+            $link = $auth->auth_check();
         ?>
         <div id="offsrceen">
-            <?php include 'includes/popup.php'; ?>
+            <?php include 'includes/web/popup.php'; ?>
         </div>
         <div id="sidebar">
-            <?php include 'includes/control_sidebar.php'; ?>
+            <?php include 'includes/web/control_sidebar.php'; ?>
         </div>
         <div id="header">
-            <?php include 'includes/control_header.php' ?>
+            <?php include 'includes/web/control_header.php' ?>
         </div>
         <div id="content">
             <div class="container">
@@ -32,10 +32,13 @@
                  switch($_GET['page'])
                 {
                     case 'link1':
-                        include 'includes/control_front.php';
+                        include 'includes/web/control_front.php';
                         break;
                     case 'user_manager':
-                        include 'includes/control_user.php';
+                        include 'includes/web/control_user.php';
+                        break;
+                    case 'book_manager' :
+                        include 'includes/web/control_book.php';
                         break;
                     default:
                         echo "<div class=bucket> Pagina non trovata </div>";

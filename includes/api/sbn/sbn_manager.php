@@ -1,23 +1,6 @@
 <?php
 
 include 'sbn_config.php';
-/*
-$_SBN['url'] = "opac.sbn.it";
-$_SBN['port'] = 2100;
-$_SBN['dbname'] = "nopac";
-
-$_SBN['server'] = $_SBN['url'] . ":" . $_SBN['port'] . "/" . $_SBN['dbname'];
-//$_SBN['server'] = "opac.sbn.it:2100/nopac";
-
-$_SBN['syntax'] = "UNIMARC";
-
-$_SBN['fields'] = array("wti" => "1=4",
-                        "ibn" => "1=7",
-                        "isn"   => "1=8",
-                        "wja"   => "1=31",
-                        "wpe"   => "1=1004",
-                        "wve"   => "1=1018");
-*/
 
 class sbn_manager {
     var $conn;
@@ -124,6 +107,43 @@ class sbn_manager {
     }
 
     function parse_unimarc_string($record) {
+        $ret = array();
+        // there was a case where angle brackets interfered
+        $record = str_replace(array("<", ">"), array("", ""), $record);
+        $record = utf8_decode($record);
+        // split the returned fields at their separation character (newline)
+        $record = explode("\n", $record);
+        //examine each line for wanted information (see USMARC spec for details)
+        foreach ($record as $category) {
+            // subfield indicators are preceded by a $ sign
+            $parts = explode("$", $category);
+            // remove leading and trailing spaces
+            array_walk($parts, "custom_trim");
+            // the first value holds the field id,
+            // depending on the desired info a certain subfield value is retrieved
+            switch (substr($parts[0], 0, 3)) {
+                case "001" : $ret['identificativo'] = substr($parts[0], "IT");
+                    break;
+                case "005" : $ret['versione'] = get_subfield_value($parts, "");
+                    break;
+                case "010" : $ret['ISBN'] = get_subfield_value($parts, "a");
+                    break;
+                case "011" : $ret['ISSN'] = get_subfield_value($parts, "a");
+                    break;
+                case "020" : $ret['num_bibl_naz'] = get_subfield_value($parts, "a");
+                    break;
+                case "100" : $ret['info'] = get_subfield_value($parts, "a");
+                    break;
+                case "101" : $ret['lingua'] = get_subfield_value($parts, "a");
+                    break;
+                case "102" : $ret['paese_pubbl'] = get_subfield_value($parts, "a");
+                    break;
+                case "200" : $ret['titolo'] = get_subfield_value($parts, "a");
+                    break;
+                case "205" : $ret['edizione'] = get_subfield_value($parts, "a");
+                    break;
+            }
+        }
         
     }
     
@@ -192,3 +212,4 @@ class sbn_manager {
     }
 
 }
+

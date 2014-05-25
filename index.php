@@ -15,9 +15,9 @@ ob_start();
             ini_set('display_errors', 1);
             error_reporting(E_ALL | E_STRICT);
         */
-        define('ROOT_PATH', realpath(__DIR__));
+        //define('ROOT_PATH', realpath(__DIR__));
         
-        include_once("./includes/api/db/auth/auth_manager.php");
+        include_once("includes/api/db/auth/auth_manager.php");
 
         $auth = new auth_manager();
         $link = $auth->auth_check();

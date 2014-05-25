@@ -21,6 +21,9 @@
                         </div>
                         <input type="password" placeholder="Password" name="password_box" class="input_group_form">
                     </div>
+                    <div class="input_group_btn">
+                        <button type="submit" name="login_btn" class="btn">Login</button>
+                    </div>
                     <?php
                     
                     list($status, $user) = $auth->auth_get_status();
@@ -82,9 +85,6 @@
                     }
 
                     ?>
-                    <div class="input_group_btn">
-                        <button type="submit" name="login_btn" class="btn">Login</button>
-                    </div>
                 </form>
             </div>
         </div>

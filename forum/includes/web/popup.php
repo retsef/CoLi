@@ -21,20 +21,27 @@
                         </div>
                         <input type="password" placeholder="Password" name="password_box" class="input_group_form">
                     </div>
+                    <div class="input_group_btn">
+                        <button type="submit" name="login_btn" class="btn">Login</button>
+                    </div>
                     <?php
                     
-                    list($status, $user) = auth_get_status();
+                    list($status, $user) = $auth->auth_get_status();
 
                     if($status == AUTH_NOT_LOGGED){
+                        $uname = "";
+                        $passw = "";
+                        if(isset($_POST['username_box']))
                         $uname = strtolower(trim($_POST['username_box']));
+                        if(isset($_POST['password_box']))
                         $passw = strtolower(trim($_POST['password_box']));
 
                         if($uname == "" or $passw == ""){
                             $status = AUTH_INVALID_PARAMS;
                         }else{
-                            list($status, $user) = auth_login($uname, $passw);
+                            list($status, $user) = $auth->auth_login($uname, $passw);
                             if(!is_null($user)){
-                                list($status, $uid) = auth_register_session($user);
+                                list($status, $uid) = $auth->auth_register_session($user);
                             }
                         }
                     }
@@ -78,9 +85,6 @@
                     }
 
                     ?>
-                    <div class="input_group_btn">
-                        <button type="submit" name="login_btn" class="btn">Login</button>
-                    </div>
                 </form>
             </div>
         </div>

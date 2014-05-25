@@ -8,7 +8,7 @@ $_CONFIG['dbname'] = "users";
 $_CONFIG['table_sessioni'] = "sessioni";
 $_CONFIG['table_utenti'] = "utenti";
 
-$_CONFIG['expire'] = 60;
+$_CONFIG['expire'] = 3600*24;
 
 //--------------
 define('AUTH_LOGGED', 99);
