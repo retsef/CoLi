@@ -17,6 +17,15 @@
             $auth = new auth_manager();
             $link = $auth->auth_check();
         ?>
+        <?php
+        list($status, $user) = $auth->auth_get_status();
+
+        if ($status == AUTH_NOT_LOGGED) {
+            header("Refresh: 3;URL=../index.php");
+            echo '<div align="center">Non hai i permessi per vedere questa pagina ... attendi il reindirizzamento</div>';
+        } else {
+        //rimmuovere il popup di login e reindirizzare su index se AUTH_NOT_LOGED
+        ?>
         <div id="offsrceen">
             <?php include 'includes/web/popup.php'; ?>
         </div>
@@ -47,5 +56,8 @@
                 ?>
             </div>
         </div>
+        <?php
+        }
+        ?>
     </body>
 </html>

@@ -13,5 +13,6 @@
     <h3>Servizi</h3>
     <ul>
         <li><a href="./control.php?page=user_manager">Gestionie utenti</a></li>
+        <li><a href="./control.php?page=book_manager">Gestionie Libri</a></li>
     </ul>
 </div>

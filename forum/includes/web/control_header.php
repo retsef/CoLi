@@ -9,7 +9,7 @@
                 case AUTH_LOGGED:
             ?>
             <li><?=$user["name"];?></li>
-            <li><a href="/CoLi/forum/logout.php<?=$link?>">Logout</a></li>
+            <li><a href="/CoLi/logout.php<?=$link?>">Logout</a></li>
             <?php
                 break;
                 case AUTH_NOT_LOGGED:
