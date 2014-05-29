@@ -260,7 +260,7 @@ input {
 #Link_site a {
     padding-left: 30px;
 }
-#Link_site li:hover a {
+#Link_site li:hover > a {
     color: black;
 }
 
@@ -279,7 +279,7 @@ input {
     background: white;
     border-radius: 3px;
 }
-.nav_bar li:hover a {
+.nav_bar li:hover > a {
     color: black;
 }
 
@@ -301,7 +301,7 @@ input {
 .frame_header {
     margin-bottom: 10px;
 }
-.frame_header * {
+.frame_header p, .frame_header select {
     display: inline-block;
 }
 
