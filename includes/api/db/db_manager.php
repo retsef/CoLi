@@ -2,7 +2,7 @@
 
 class db_manager {
     
-    private $con;
+    private $status_conn;
     
     private $db_host;
     private $db_user;
@@ -16,14 +16,14 @@ class db_manager {
         $this->db_name = $db;
     }
     
-    public function connect($host, $username, $password, $db) {
-        if(!$this->con)
+    public function connect() {
+        if(!$this->status_conn)
         {
             $myconn = @mysql_connect($this->db_host,$this->db_user,$this->db_pass);
             if($myconn) {
-                $seldb = @mysql_select_db($db,$myconn);
+                $seldb = @mysql_select_db($this->db_name,$myconn);
                 if($seldb) {
-                    $this->con = true;
+                    $this->status_conn = true;
                     return true;
                 } else {
                     return false;
@@ -37,9 +37,9 @@ class db_manager {
     }
     
     public function disconnect() {
-        if($this->con) {
+        if($this->status_conn) {
             if(@mysql_close()) {
-                $this->con = false;
+                $this->status_conn = false;
                 return true;
             }
             else {
@@ -50,6 +50,10 @@ class db_manager {
     
     private $result = array();
  
+    public function getResult() {
+        return $this->result;
+    }
+    
     private function tableExists($table) {
         $tablesInDb = @mysql_query('SHOW TABLES FROM '.$this->db_name.' LIKE "'.$table.'"');
         if($tablesInDb) {
@@ -61,7 +65,7 @@ class db_manager {
             }
         }
     }
-    
+
     public function select($table, $rows = '*', $where = null, $order = null) {
         $q = 'SELECT '.$rows.' FROM '.$table;
         if($where != null)
@@ -91,6 +95,24 @@ class db_manager {
         } else {
             return false;
         }
+        } else {
+            return false;
+        }
+    }
+    
+    public function select_q($table, $rows = '*', $where = null, $order = null) {
+        $q = 'SELECT '.$rows.' FROM '.$table;
+        if($where != null)
+            $q .= ' WHERE '.$where;
+        if($order != null)
+            $q .= ' ORDER BY '.$order;
+        if($this->tableExists($table)) {
+        $query = @mysql_query($q);
+            if($query) {
+                return $query;
+            } else {
+                return false;
+            }
         } else {
             return false;
         }
