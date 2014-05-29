@@ -2,7 +2,7 @@
 
 class db_manager {
     
-    private $conn;
+    private $con;
     
     private $db_host;
     private $db_user;
