@@ -14,12 +14,10 @@
 ### To Do
 
 - [ ] Riorganizzare il css e i relativi tag presenti e futuri
-- [ ] Risolvere l'include di assegnazione delle funzioni di sbn.lib.php (provvedo)
-- [x] Rimpiazzare i riferimenti php con il define ROOT (alternativa trovata)
-- [ ] Risolvere il logout
-- [ ] Risolvere la gestione del login trmite cookie
+- [x] Risolvere il logout
+- [x] Risolvere la gestione del login tramite cookie
 - [ ] Aggiustare pagina di ricerca avanzata
-- [ ] Creare il parser per formato unimarc in sbn.lib.php
+- [ ] Creare il parser per formato unimarc in sbn_manager.php
 - [ ] Creare vista a lista all'interno di result_search.php:
  - [ ] Organizzare in pagine la ricerca libri
  - [ ] Differenziare la ricerca su sbn e quella sul DB locale
@@ -28,6 +26,6 @@
 - [ ] Definire il DB dei libri locali
 - [ ] Definire le informazioni relative ad un utente e trasporle nell'attuale DB
 - [x] Creare il framework di gestione pagina utente:
- - [ ] Creare l'infrastuttura di gestione Amministratore
+ - [x] Creare l'infrastuttura di gestione Amministratore
  - [ ] Creare la pagina di inserimento libri con opzionale ricerca nell'sbn
 
