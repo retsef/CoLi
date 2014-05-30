@@ -83,6 +83,6 @@ I campi contrassegnati con un asterisco (*) sono obbligatori.</p>
         </div>
     </div>
     <div style="margin: 15px; margin-left: 80%;">
-        <button class="btn" >Registrati</button>
+        <button class="btn btn_submit" >Registrati</button>
     </div>
 </form>

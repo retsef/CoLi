@@ -100,24 +100,6 @@ class db_manager {
         }
     }
     
-    public function select_q($table, $rows = '*', $where = null, $order = null) {
-        $q = 'SELECT '.$rows.' FROM '.$table;
-        if($where != null)
-            $q .= ' WHERE '.$where;
-        if($order != null)
-            $q .= ' ORDER BY '.$order;
-        if($this->tableExists($table)) {
-        $query = @mysql_query($q);
-            if($query) {
-                return $query;
-            } else {
-                return false;
-            }
-        } else {
-            return false;
-        }
-    }
-    
     public function insert($table,$values,$rows = null) {
         if($this->tableExists($table)) {
             $insert = 'INSERT INTO '.$table;

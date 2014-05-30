@@ -5,16 +5,18 @@
         </div>
         <div id="Title_site">
             <h1><a>Sistema Bibliotecario Sassinoro</a></h1>
-            <div class="input_group">
-                <form action="./index.php?page=risultati_ricerca" method="post">
-                    <div class="input_group_addon">
-                        <img src="./resources/images/icon/search.png" class="icon" alt="search">
-                    </div>
-                    <input type="text" placeholder="Ricerca nel catalogo" name="search_box" class="input_group_form">
-                    <div class="input_group_btn">
-                        <button type="submit" name="submit" class="btn btn_default">Cerca</button>
-                    </div>
-                </form>
+            <div class="form_group">
+                <div class="input_group">
+                    <form action="./index.php?page=risultati_ricerca" method="post">
+                        <div class="input_group_addon">
+                            <img src="./resources/images/icon/search.png" class="icon" alt="search">
+                        </div>
+                        <input type="text" placeholder="Ricerca nel catalogo" name="search_box" class="input_group_form">
+                        <div class="input_group_btn">
+                            <button type="submit" name="submit" class="btn btn_default">Cerca</button>
+                        </div>
+                    </form>
+                </div>
             </div>
             <a href='./index.php?page=ricerca_avanzata'>Ricerca avanzata</a>
         </div>

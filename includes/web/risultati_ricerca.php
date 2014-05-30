@@ -6,5 +6,5 @@ include(ROOT_PATH. "/includes/api/sbn/sbn_manager.php");
 
 $sbn = new sbn_manager();
 
-$sbn->sbn_search($_GET['search_box']);
+$sbn->sbn_search($_POST['search_box']);
 

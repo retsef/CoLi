@@ -22,7 +22,7 @@
                         <input type="password" placeholder="Password" name="password_box" class="input_group_form">
                     </div>
                     <div class="input_group_btn">
-                        <button type="submit" name="login_btn" class="btn">Login</button>
+                        <button type="submit" name="login_btn" class="btn btn_submit" style="margin-top: 45px; margin-right: 5px;">Login</button>
                     </div>
                     <?php
                     
