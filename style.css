@@ -323,10 +323,17 @@ button {
 }
 
 .faq {
+    text-decoration: none;
+    font-weight: bold;
     display: block;
+    margin-bottom: 5px;
 }
 .answer {
     display: none;
+}
+.faq:focus {
+    outline: none;
+    margin: 0;
 }
 .faq:focus ~ .answer {
     display: block;
@@ -392,10 +399,6 @@ button {
 
 #side_link {
     padding-top: 15px;
-}
-
-#side_link li {
-    list-style: none;
 }
 
 #other_logo {
