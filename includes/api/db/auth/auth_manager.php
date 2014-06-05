@@ -1,7 +1,7 @@
 <?php
 
 include 'auth_config.php';
-include ROOT_PATH. "/includes/api/db/db_manager.php";
+include "$_SERVER[DOCUMENT_ROOT]/CoLi/includes/api/db/db_manager.php";
 
 class auth_manager {
     private $conn;
@@ -139,10 +139,14 @@ class auth_manager {
         global $_CONFIG;
 
         $uid = $this->auth_generate_uid();
+        /*
+        $this->conn->insert($_CONFIG['table_sessioni'], 
+                "'" . $uid . "', '" . $udata['id'] . "', " . time(),
+                "uid, user_id, creation_date");*/
         
         $this->conn->insert($_CONFIG['table_sessioni'], 
-                "'" . $uid . "', '" . $udata['id'] . "', " . time(), 
-                "uid, user_id, creation_date");
+                 array($uid,$udata['id'], time()));
+        
 /*
         mysql_query("
 	INSERT INTO " . $_CONFIG['table_sessioni'] . "

@@ -8,10 +8,10 @@
     </head>
     <body>
         <?php
-        /*
+        
             ini_set('display_errors', 1);
             error_reporting(E_ALL | E_STRICT);
-        */
+            
             include_once("../includes/api/db/auth/auth_manager.php");
 
             $auth = new auth_manager();
