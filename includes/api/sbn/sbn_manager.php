@@ -39,14 +39,15 @@ class sbn_manager {
                 throw new Exception("Error: " . yaz_error($this->conn));
             }
             // yaz_hits returns the amount of found records
+            /*
             $hits = yaz_hits($this->conn);
             if ($hits > 0) {
-                echo "Found ".$hits ." hits:<br>";
+                //echo "Found ".$hits ." hits:<br>";
                 // yaz_record fetches a record from the current result set,
                 // so far I've only seen server supporting string format
-                $result = yaz_record($this->conn, 1, "string");
-                print($result);
-                echo "<br><br>";
+                //$result = yaz_record($this->conn, 1, "string");
+                //print($result);
+                //echo "<br><br>";
                 // the parsing functions will be introduced later
                 /*
                 if ($_SBN['syntax'] == "mab") {
@@ -55,11 +56,23 @@ class sbn_manager {
                     $parsedResult = parse_usmarc_string($result);
                 }
                 print_r($parsedResult);
-                */
             } else {
                 echo "No records found.";
             }
+            */
         }
+    }
+    
+    function get_hits() {
+        if ($this->conn)
+            return yaz_hits($this->conn);
+        return false;
+    }
+    
+    function get_Result($index=1, $type="string"){
+        if ($this->get_hits() > 0)
+            return yaz_record($this->conn, $index, $type);
+        return false;
     }
 
     function parse_mab_string($record) {
