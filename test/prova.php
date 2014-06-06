@@ -23,19 +23,21 @@ print "<br></br>";
 //$res = $db->getResult();
 //print_r($res);
 //print "<br></br>";
-//$db->select($_CONFIG['table_utenti']);
-//print_r($db->getResult());
+$db->select($_CONFIG['table_utenti'], "*", "username='gm' and password=MD5('test3')");
 
+//print_r($db->getResult());
+/*
 $db->select("user_session",
             "name,surname,username",
             "uid = '".$uid."'");
-
+*/
 print "<br></br>";
 $res = $db->getResult();
 echo count($res);
-$user_id = 1;
+print "<br></br>";
+echo $db->numResult();
+
 //$db->delete($_CONFIG['table_sessioni'], "user_id = 1");
-        
-$res = $db->getResult();
 print "<br></br>";
 print_r($res);
+print "<br></br>";

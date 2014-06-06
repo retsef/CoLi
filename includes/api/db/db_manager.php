@@ -54,6 +54,13 @@ class db_manager {
         return $this->result;
     }
     
+    private $numResults = 0;
+    
+    public function numResult() {
+        return $this->numResults;
+    }
+
+
     private function tableExists($table) {
         $tablesInDb = @mysql_query('SHOW TABLES FROM '.$this->db_name.' LIKE "'.$table.'"');
         if($tablesInDb) {

@@ -100,8 +100,8 @@ class auth_manager {
           WHERE S.user_id = U.id and S.uid = '" . $uid . "'");
          */
         $this->conn->select("user_session", "name,surname,username", "uid = '" . $uid . "'");
-
-        if (count($this->conn->getResult()) != 3) {
+        
+        if (count($this->conn->numResult()) != 1) {
             return array(AUTH_NOT_LOGGED, NULL);
         } else {
             $user_data = $this->conn->getResult();
