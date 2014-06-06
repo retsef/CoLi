@@ -7,6 +7,14 @@ $_CONFIG['dbname'] = "users";
 
 $_CONFIG['table_sessioni'] = "sessioni";
 $_CONFIG['table_utenti'] = "utenti";
+/*
+ * Questa table e' una vista 
+ * nata dalla join delle table sessioni e utenti
+ * 
+ * Serve ad ovviare il controllo di TableExists in 
+ * db_manager che non riconosce le tabelle create con join
+ */
+$_CONFIG['table_instance'] = "user_session";
 
 $_CONFIG['expire'] = 3600*24;
 

@@ -49,7 +49,7 @@ class db_manager {
     }
     
     private $result = array();
- 
+    
     public function getResult() {
         return $this->result;
     }

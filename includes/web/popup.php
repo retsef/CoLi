@@ -64,7 +64,7 @@
                                     break;
                                     case AUTH_USE_COOKIE:
                                         header("Refresh: 1;URL=index.php");
-                                        setcookie('uid', $uid, time()+3600*24*30);
+                                        setcookie('uid', $uid, time()+3600*24, '/');
                                     break;
                                     case AUTH_USE_SESSION:
                                         header("Refresh: 1;URL=index.php");
