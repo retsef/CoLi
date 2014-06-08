@@ -7,13 +7,13 @@
             <h1><a>Sistema Bibliotecario Sassinoro</a></h1>
             <div class="form_group">
                 <div class="input_group">
-                    <form action="./index.php?page=risultati_ricerca" method="post">
+                    <form action="./index.php" method="get">
                         <div class="input_group_addon">
                             <img src="./resources/images/icon/search.png" class="icon" alt="search">
                         </div>
-                        <input type="text" placeholder="Ricerca nel catalogo" name="search_box" class="input_group_form">
+                        <input type="text" placeholder="Ricerca nel catalogo" name="search" class="input_group_form">
                         <div class="input_group_btn">
-                            <button type="submit" name="submit" class="btn btn_default">Cerca</button>
+                            <button type="submit" name="page" value="risultati_ricerca" class="btn btn_default">Cerca</button>
                         </div>
                     </form>
                 </div>

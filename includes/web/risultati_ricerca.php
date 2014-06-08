@@ -6,7 +6,7 @@ include(ROOT_PATH. "/includes/api/sbn/sbn_manager.php");
 
 $sbn = new sbn_manager();
 try {
-    $sbn->sbn_search($_POST['search_box']);
+    $sbn->sbn_search($_GET['search']);
 } catch (Exception $e) {
     echo $e->getMessage();
 }
@@ -32,6 +32,32 @@ for($i=$start;$i<=$end;$i++){
     </li>";
 }
 echo "</ol>";
+
+echo 
+"<div class=nav_bar_page>"
+    ."<ul>"
+        . "<li>"
+            . "<a href=" ."". "><<</a>"
+        . "</li>"
+        . "<li>"
+            . "<a href=" ."". "> < Prec.</a>"
+        . "</li>"
+        . "<li>"
+            . "<a href=" ."". ">"
+            . "Visualizzati" .$start. " - " .$end. " di " .$hits. ""
+            . "</a>"
+        . "</li>"
+        . "<li>"
+            . "<a href=" ."". ">Succ. ></a>"
+        . "</li>"
+        . "<li>"
+            . "<a href=" ."". ">>></a>"
+        . "</li>"
+    ."</ul>"
+."</div>";
+        
+        
+        
 
 } else 
     echo "No records found.";
