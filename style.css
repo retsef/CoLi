@@ -307,15 +307,19 @@ button::-moz-focus-inner {
     border-radius: 3px;
 }
 
+.nav_bar_page {
+    position: relative;
+    padding-top: 20px;
+    padding-bottom: 40px;
+    width: 500px;
+    margin-left: auto;
+    margin-right: 20px;
+}
 .nav_bar_page a {
     text-decoration: none;
     color: black;
 }
 .nav_bar_page ul {
-    top: 20px;
-    position: relative;
-    float: right;
-    right: 20px;
 }
 .nav_bar_page li {
   display: inline;
