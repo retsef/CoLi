@@ -99,9 +99,9 @@ class auth_manager {
           FROM " . $_CONFIG['table_sessioni'] . " S," . $_CONFIG['table_utenti'] . " U
           WHERE S.user_id = U.id and S.uid = '" . $uid . "'");
          */
-        $this->conn->select("user_session", "name,surname,username", "uid = '" . $uid . "'");
+        $this->conn->select($_CONFIG['table_instance'], "name,surname,username", "uid = '" . $uid . "'");
         
-        if (count($this->conn->numResult()) != 1) {
+        if ($this->conn->numResult() != 1) {
             return array(AUTH_NOT_LOGGED, NULL);
         } else {
             $user_data = $this->conn->getResult();

@@ -1,6 +1,6 @@
 <?php
 
-include_once("./includes/api/db/auth/auth_manager.php");
+include_once("includes/api/db/auth/auth_manager.php");
 
 $auth = new auth_manager();
 

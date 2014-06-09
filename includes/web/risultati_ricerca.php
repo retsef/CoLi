@@ -1,7 +1,4 @@
 <?php
-ini_set('display_errors', 1);
-error_reporting(E_ALL | E_STRICT);
-
 include(ROOT_PATH. "/includes/api/sbn/sbn_manager.php");
 
 $Get_url = "?page=" .$_GET['page'] . "&search=" .$_GET['search'];
@@ -28,6 +25,7 @@ $end=$start+$step;
 $pre=$start-$step;
 $last=$hits-$step;
 
+echo "<div>";
 echo "<ol start=".$start.">";
 for($i=$start;$i<=$end;$i++){
     echo 
@@ -41,6 +39,7 @@ for($i=$start;$i<=$end;$i++){
     </li>";
 }
 echo "</ol>";
+echo "</div>";
 
 echo 
 "<div class=nav_bar_page>"
