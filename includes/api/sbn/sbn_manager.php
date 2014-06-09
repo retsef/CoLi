@@ -2,9 +2,21 @@
 
 include 'sbn_config.php';
 
+/**
+ * Classe per la ricerca su SBN
+ * 
+ * @author Roberto <r.scinocca2@studenti.unimol.it>
+ */
 class sbn_manager {
+    
     var $conn;
 
+    /**
+     * 
+     * 
+     * @global $_SBN Contiene le configurazione dell'SBN
+     * @throws Exception nel caso non si riesca a connettersi
+     */
     function __construct() {
         global $_SBN;
         

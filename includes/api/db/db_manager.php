@@ -1,5 +1,10 @@
 <?php
 
+/**
+ * Classe per la gestione del database
+ * 
+ * @author Roberto <r.scinocca2@studenti.unimol.it>
+ */
 class db_manager {
     
     private $status_conn;
@@ -9,6 +14,13 @@ class db_manager {
     private $db_pass;
     private $db_name;
     
+    /**
+     * 
+     * @param type $host
+     * @param type $username
+     * @param type $password
+     * @param type $db
+     */
     function __construct($host, $username, $password, $db) {
         $this->db_host = $host;
         $this->db_user = $username;
