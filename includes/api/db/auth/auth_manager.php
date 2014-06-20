@@ -26,7 +26,7 @@ class auth_manager {
         $this->conn = new db_manager($_CONFIG['host'], $_CONFIG['user'], $_CONFIG['pass'], $_CONFIG['dbname']);
         $this->conn->connect();
         if (!$this->conn) {
-            throw new Exception('Impossibile stabilire una connessione ' . mysql_errno());
+            throw new auth_exception('Impossibile stabilire una connessione ' . mysql_errno());
         }
         //mysql_select_db($_CONFIG['dbname']);
     }
