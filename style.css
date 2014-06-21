@@ -41,6 +41,20 @@ button::-moz-focus-inner {
 .row {
     margin-bottom: 5px;
 }
+.row .input {
+    left: 20px;
+}
+.row .arc {
+    height: 77px;
+    width: 46px;
+    border-width: 3px medium 3px 3px;
+    border-style: solid none solid solid;
+    border-color: #EAEAEA;
+    border-radius: 38px 0px 0px 38px;
+}
+.row .operator {
+    
+}
 .colum {
     float: left;
     margin: 0 10px;
@@ -354,7 +368,6 @@ button::-moz-focus-inner {
 }
 
 .frame {
-    display: table;
     background: #f8f8f8;
     padding: 15px;
     border-radius: 4px;

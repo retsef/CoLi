@@ -10,7 +10,7 @@
                 <option value="AND NOT">Nessuno (NOT)</option>
             </select>
         </div>
-        <div class="row">
+        <div class="row input">
             <select name="search_target" class="input_select">
                 <option value="autore" selected="selected">Autore</option>
                 <option value="titolo">Titolo</option>
@@ -45,4 +45,12 @@
 <div>
     <button type="submit" name="submit" class="btn btn_submit" style="margin-top: 5px;">Cerca</button>
 </div>
+    <div>
+        <h3 class="page_header">Istruzioni</h3>
+        <p>
+            Da questa pagina puoi costruire una ricerca complessa, utilizzando diversi campi a tua disposizione. Seleziona un campo di ricerca dalla tendina "Tipo di campo", quindi inserisci o seleziona il testo da ricercare nel box accanto alla tendina. Per alcuni campi di ricerca (ad es. Autore, Classe, Soggetto), iniziando a scrivere il testo da ricercare potrebbe comparire una tendina di autocompletamento, da cui puoi selezionare una delle voci presenti nel catalogo.
+            Puoi rimuovere o aggiungere un qualsiasi campo di ricerca, che può essere usato più volte e collegato agli altri tramite operatori booleani. Scegliendo l'operatore AND, i risultati della ricerca mostreranno documenti del catalogo che contengono tutti i valori inseriti; scegliendo l'operatore OR, sarà sufficiente che i documenti contengano almeno uno dei valori inseriti; con l'operatore NOT verranno esclusi dai risultati tutti i documenti che contengono quel valore. È possibile costruire ricerche complesse aggiungendo gruppi di campi al cui interno utilizzare diversi operatori booleani. I gruppi sono legati tra loro tramite l'operatore AND, ovvero i risultati dovranno rispettare tutte le condizioni di ricerca inserite.
+            Prima di compiere la ricerca cliccando il pulsante "Cerca", puoi scegliere come dovranno essere ordinati i risultati ottenuti e quanti documenti mostrare per pagina.
+        </p>
+    </div>
 </form>

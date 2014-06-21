@@ -10,9 +10,10 @@
         <li><a href="./control.php?page=link1">link1</a></li>
         <li><a href="./control.php?page=link2">link2</a></li>
     </ul>
-    <h3>Servizi</h3>
+    <h3>Gestione</h3>
     <ul>
-        <li><a href="./control.php?page=user_manager">Gestionie utenti</a></li>
-        <li><a href="./control.php?page=book_manager">Gestionie Libri</a></li>
+        <li><a href="./control.php?page=profile_manager">Profilo</a></li>
+        <li><a href="./control.php?page=user_manager">Utenti</a></li>
+        <li><a href="./control.php?page=book_manager">Libri</a></li>
     </ul>
 </div>

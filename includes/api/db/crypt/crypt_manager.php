@@ -15,9 +15,7 @@ class crypt_manager {
     }
 
     public function encrypt($data) {
-        if (!$publicKey = openssl_pkey_get_public($this->public))
-            throw new crypt_exception('Unable to get the publickey');
-        if (openssl_public_encrypt($data, $encrypted, $publicKey))
+        if (openssl_public_encrypt($data, $encrypted, $this->public))
             $data = base64_encode($encrypted);
         else
             throw new crypt_exception('Unable to encrypt data.');
@@ -26,9 +24,7 @@ class crypt_manager {
     }
 
     public function decrypt($data) {
-        if (!$privateKey = openssl_pkey_get_private($this->private))
-            throw new crypt_exception('Unable to get the privatekey');
-        if (openssl_private_decrypt(base64_decode($data), $decrypted, $privateKey))
+        if (openssl_private_decrypt(base64_decode($data), $decrypted, $this->private))
             $data = $decrypted;
         else
             $data = '';

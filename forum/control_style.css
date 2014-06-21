@@ -226,6 +226,7 @@ input {
 /* sidebar */
 
 #sidebar {
+    position: fixed;
     height: 100%;
     width: 170px;
     z-index: 510;
@@ -306,10 +307,20 @@ input {
     height: 100%;
 }
 
-#content .container {
-    height: 100%;
+#content .container_shadow {
     background: url(../resources/images/sidebar_shadow.png) repeat-y left top;
 
+    top: -50px;
+    
+    height: 100%;
+    width: 100%;
+    
+    z-index: 100;
+    position: fixed;
+}
+
+#content .container {
+    height: 100%;
 }
 
 .bucket {

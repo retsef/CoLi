@@ -8,7 +8,7 @@ include './crypt_manager.php';
 
 $crypt = new crypt_manager();
 
-$plaintext = 'This is just some text to encrypt';
+$plaintext = $_POST['data'];
 
 echo '<p>$plaintext = ' . $plaintext . '<p>';
 

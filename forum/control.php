@@ -36,12 +36,18 @@
             <?php include 'includes/web/control_header.php' ?>
         </div>
         <div id="content">
+            <div class="container container_shadow">
+                
+            </div>
             <div class="container">
                 <?php
                  switch($_GET['page'])
                 {
                     case 'link1':
                         include 'includes/web/control_front.php';
+                        break;
+                    case 'profile_manager':
+                        include 'includes/web/control_profile.php';
                         break;
                     case 'user_manager':
                         include 'includes/web/control_user.php';
