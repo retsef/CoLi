@@ -321,6 +321,16 @@ button::-moz-focus-inner {
     border-radius: 3px;
 }
 
+.nav_bar .selected {
+    padding: 0;
+}
+.nav_bar .selected > a {
+    color: black;
+    background: white;
+    padding: 8px 12px;
+    border-radius: 3px;
+}
+
 .nav_bar_page {
     position: relative;
     padding-top: 20px;
