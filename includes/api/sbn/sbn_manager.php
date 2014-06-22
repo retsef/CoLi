@@ -5,6 +5,8 @@ include 'sbn_config.php';
 /**
  * Classe per la ricerca su SBN
  * 
+ * @link http://unimarc-it.wikidot.com Unimarc
+ * @author Jonas <http://blog.peschla.net>
  * @author Roberto <r.scinocca2@studenti.unimol.it>
  */
 class sbn_manager {
@@ -24,7 +26,7 @@ class sbn_manager {
 
         $error = yaz_error($this->conn);
         if ($error) {
-            throw new Exception("Errore nella connessione all'SBN: " . $error);
+            throw new sbn_exception("Errore nella connessione all'SBN: " . $error);
         }
 
         yaz_syntax($this->conn, $_SBN['syntax']);
@@ -39,7 +41,7 @@ class sbn_manager {
         // let YAZ parse the query and check for error
         $result = yaz_ccl_parse($this->conn, $ccl_query, $ccl_result);
         if (!$result) {
-            throw new Exception("The query could not be parsed.");
+            throw new sbn_exception("The query could not be parsed.");
         } else {
             // fetch RPN result from the parser
             $rpn = $ccl_result["rpn"];
@@ -48,7 +50,7 @@ class sbn_manager {
             // wait blocks until the query is done
             yaz_wait();
             if (yaz_error($this->conn) != "") {
-                throw new Exception("Error: " . yaz_error($this->conn));
+                throw new sbn_exception("Error: " . yaz_error($this->conn));
             }
             // yaz_hits returns the amount of found records
             /*
@@ -147,7 +149,7 @@ class sbn_manager {
             // the first value holds the field id,
             // depending on the desired info a certain subfield value is retrieved
             switch (substr($parts[0], 0, 3)) {
-                case "001" : $ret['identificativo'] = substr($parts[0], "IT");
+                case "001" : $ret['identif'] = substr($parts[0], "");
                     break;
                 case "005" : $ret['versione'] = get_subfield_value($parts, "");
                     break;
@@ -155,7 +157,11 @@ class sbn_manager {
                     break;
                 case "011" : $ret['ISSN'] = get_subfield_value($parts, "a");
                     break;
-                case "020" : $ret['num_bibl_naz'] = get_subfield_value($parts, "a");
+                case "017" :
+                    break;
+                case "020" : $ret['num_bibl_naz'] = array(
+                        get_subfield_value($parts, "a"),
+                        get_subfield_value($parts, "b"));
                     break;
                 case "100" : $ret['info'] = get_subfield_value($parts, "a");
                     break;
@@ -167,9 +173,38 @@ class sbn_manager {
                     break;
                 case "205" : $ret['edizione'] = get_subfield_value($parts, "a");
                     break;
+                case "210" : $ret['publicazione'] = array(
+                    'luogo' => get_subfield_value($parts, "a"),
+                    'indirizzo' => get_subfield_value($parts, "b"),
+                    'nome' => get_subfield_value($parts, "c"),
+                    'data' => get_subfield_value($parts, "d")
+                    );
+                    break;
+                case "215" : $ret['descr_fisica'] = array(
+                    get_subfield_value($parts, "a"),
+                    get_subfield_value($parts, "c"),
+                    get_subfield_value($parts, "d"),
+                    get_subfield_value($parts, "e"));
+                    break;
+                case "300" : $ret['note'] = get_subfield_value($parts, "a");
+                    break;
+                case "700" : $ret['autore'] = array(
+                    get_subfield_value($parts, "a"),
+                    get_subfield_value($parts, "b"),
+                    get_subfield_value($parts, "f"));
+                    break;
+                case "801" : $ret['fonte'] = array(
+                    'agenzia' => get_subfield_value($parts, ""),
+                    'codice' => get_subfield_value($parts, "a"),
+                    'nome' => get_subfield_value($parts, "b"),
+                    'data' => get_subfield_value($parts, "c"),
+                    'regole' => get_subfield_value($parts, "g"),
+                    'formato' => get_subfield_value($parts, "2")
+                    );
+                    break;
             }
         }
-        
+        return $ret;
     }
     
     function parse_usmarc_string($record) {
