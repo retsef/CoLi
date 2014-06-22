@@ -1,6 +1,7 @@
 <?php
 
 include 'sbn_config.php';
+include 'sbn_exception.php';
 
 /**
  * Classe per la ricerca su SBN
@@ -41,7 +42,7 @@ class sbn_manager {
         // let YAZ parse the query and check for error
         $result = yaz_ccl_parse($this->conn, $ccl_query, $ccl_result);
         if (!$result) {
-            throw new sbn_exception("The query could not be parsed.");
+            throw new sbn_exception("La query non puo' essere processata");
         } else {
             // fetch RPN result from the parser
             $rpn = $ccl_result["rpn"];
@@ -50,7 +51,7 @@ class sbn_manager {
             // wait blocks until the query is done
             yaz_wait();
             if (yaz_error($this->conn) != "") {
-                throw new sbn_exception("Error: " . yaz_error($this->conn));
+                throw new sbn_exception("Error: " . yaz_error($this->conn)."<br>");
             }
             // yaz_hits returns the amount of found records
             /*
@@ -137,7 +138,7 @@ class sbn_manager {
         $ret = array();
         // there was a case where angle brackets interfered
         $record = str_replace(array("<", ">"), array("", ""), $record);
-        $record = utf8_decode($record);
+        //$record = utf8_decode($record);
         // split the returned fields at their separation character (newline)
         $record = explode("\n", $record);
         //examine each line for wanted information (see USMARC spec for details)
@@ -151,55 +152,55 @@ class sbn_manager {
             switch (substr($parts[0], 0, 3)) {
                 case "001" : $ret['identif'] = substr($parts[0], "");
                     break;
-                case "005" : $ret['versione'] = get_subfield_value($parts, "");
+                case "005" : $ret['versione'] = $this->get_subfield_value($parts, "");
                     break;
-                case "010" : $ret['ISBN'] = get_subfield_value($parts, "a");
+                case "010" : $ret['ISBN'] = $this->get_subfield_value($parts, "a");
                     break;
-                case "011" : $ret['ISSN'] = get_subfield_value($parts, "a");
+                case "011" : $ret['ISSN'] = $this->get_subfield_value($parts, "a");
                     break;
                 case "017" :
                     break;
                 case "020" : $ret['num_bibl_naz'] = array(
-                        get_subfield_value($parts, "a"),
-                        get_subfield_value($parts, "b"));
+                        $this->get_subfield_value($parts, "a"),
+                        $this->get_subfield_value($parts, "b"));
                     break;
-                case "100" : $ret['info'] = get_subfield_value($parts, "a");
+                case "100" : $ret['info'] = $this->get_subfield_value($parts, "a");
                     break;
-                case "101" : $ret['lingua'] = get_subfield_value($parts, "a");
+                case "101" : $ret['lingua'] = $this->get_subfield_value($parts, "a");
                     break;
-                case "102" : $ret['paese_pubbl'] = get_subfield_value($parts, "a");
+                case "102" : $ret['paese_pubbl'] = $this->get_subfield_value($parts, "a");
                     break;
-                case "200" : $ret['titolo'] = get_subfield_value($parts, "a");
+                case "200" : $ret['titolo'] = $this->get_subfield_value($parts, "a");
                     break;
-                case "205" : $ret['edizione'] = get_subfield_value($parts, "a");
+                case "205" : $ret['edizione'] = $this->get_subfield_value($parts, "a");
                     break;
                 case "210" : $ret['publicazione'] = array(
-                    'luogo' => get_subfield_value($parts, "a"),
-                    'indirizzo' => get_subfield_value($parts, "b"),
-                    'nome' => get_subfield_value($parts, "c"),
-                    'data' => get_subfield_value($parts, "d")
+                    'luogo' => $this->get_subfield_value($parts, "a"),
+                    'indirizzo' => $this->get_subfield_value($parts, "b"),
+                    'nome' => $this->get_subfield_value($parts, "c"),
+                    'data' => $this->get_subfield_value($parts, "d")
                     );
                     break;
                 case "215" : $ret['descr_fisica'] = array(
-                    get_subfield_value($parts, "a"),
-                    get_subfield_value($parts, "c"),
-                    get_subfield_value($parts, "d"),
-                    get_subfield_value($parts, "e"));
+                    $this->get_subfield_value($parts, "a"),
+                    $this->get_subfield_value($parts, "c"),
+                    $this->get_subfield_value($parts, "d"),
+                    $this->get_subfield_value($parts, "e"));
                     break;
-                case "300" : $ret['note'] = get_subfield_value($parts, "a");
+                case "300" : $ret['note'] = $this->get_subfield_value($parts, "a");
                     break;
                 case "700" : $ret['autore'] = array(
-                    get_subfield_value($parts, "a"),
-                    get_subfield_value($parts, "b"),
-                    get_subfield_value($parts, "f"));
+                    $this->get_subfield_value($parts, "a"),
+                    $this->get_subfield_value($parts, "b"),
+                    $this->get_subfield_value($parts, "f"));
                     break;
                 case "801" : $ret['fonte'] = array(
-                    'agenzia' => get_subfield_value($parts, ""),
-                    'codice' => get_subfield_value($parts, "a"),
-                    'nome' => get_subfield_value($parts, "b"),
-                    'data' => get_subfield_value($parts, "c"),
-                    'regole' => get_subfield_value($parts, "g"),
-                    'formato' => get_subfield_value($parts, "2")
+                    'agenzia' => $this->get_subfield_value($parts, ""),
+                    'codice' => $this->get_subfield_value($parts, "a"),
+                    'nome' => $this->get_subfield_value($parts, "b"),
+                    'data' => $this->get_subfield_value($parts, "c"),
+                    'regole' => $this->get_subfield_value($parts, "g"),
+                    'formato' => $this->get_subfield_value($parts, "2")
                     );
                     break;
             }
@@ -225,30 +226,30 @@ class sbn_manager {
             switch (substr($parts[0], 0, 3)) {
                 case "008" : $ret["language"] = substr($parts[0], 39, 3);
                     break;
-                case "020" : $ret["isbn"] = get_subfield_value($parts, "a");
+                case "020" : $ret["isbn"] = $this->get_subfield_value($parts, "a");
                     break;
-                case "022" : $ret["issn"] = get_subfield_value($parts, "a");
+                case "022" : $ret["issn"] = $this->get_subfield_value($parts, "a");
                     break;
-                case "100" : $ret["author"] = get_subfield_value($parts, "a");
+                case "100" : $ret["author"] = $this->get_subfield_value($parts, "a");
                     break;
-                case "245" : $ret["titel"] = get_subfield_value($parts, "a");
-                    $ret["subtitel"] = get_subfield_value($parts, "b");
+                case "245" : $ret["titel"] = $this->get_subfield_value($parts, "a");
+                    $ret["subtitel"] = $this->get_subfield_value($parts, "b");
                     break;
-                case "250" : $ret["edition"] = get_subfield_value($parts, "a");
+                case "250" : $ret["edition"] = $this->get_subfield_value($parts, "a");
                     break;
-                case "260" : $ret["pub_date"] = get_subfield_value($parts, "c");
-                    $ret["pub_place"] = get_subfield_value($parts, "a");
+                case "260" : $ret["pub_date"] = $this->get_subfield_value($parts, "c");
+                    $ret["pub_place"] = $this->get_subfield_value($parts, "a");
                     $ret["publisher"] = get_subfield_value($parts, "b");
                     break;
-                case "300" : $ret["extent"] = get_subfield_value($parts, "a");
-                    $ext_b = get_subfield_value($parts, "b");
+                case "300" : $ret["extent"] = $this->get_subfield_value($parts, "a");
+                    $ext_b = $this->get_subfield_value($parts, "b");
                     $ret["extent"] .= ($ext_b != "") ? (" : " . $ext_b) : "";
                     break;
-                case "490" : $ret["series"] = get_subfield_value($parts, "a");
+                case "490" : $ret["series"] = $this->get_subfield_value($parts, "a");
                     break;
-                case "502" : $ret["diss_note"] = get_subfield_value($parts, "a");
+                case "502" : $ret["diss_note"] = $this->get_subfield_value($parts, "a");
                     break;
-                case "700" : $ret["editor"] = get_subfield_value($parts, "a");
+                case "700" : $ret["editor"] = $this->get_subfield_value($parts, "a");
                     break;
             }
         }

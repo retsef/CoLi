@@ -1,8 +1,8 @@
 <?php
-
+/*
     ini_set('display_errors', 1);
     error_reporting(E_ALL | E_STRICT);
-
+*/
 include(ROOT_PATH. "/includes/api/sbn/sbn_manager.php");
 
 $Get_url = "?page=" .$_GET['page'] . "&search=" .$_GET['search'];
@@ -10,9 +10,6 @@ $Get_url = "?page=" .$_GET['page'] . "&search=" .$_GET['search'];
 $sbn = new sbn_manager();
 try {
     $sbn->sbn_search($_GET['search']);
-} catch (sbn_exception $e) {
-    echo $e->getMessage();
-}
 
 $hits = $sbn->get_hits();
 
@@ -29,33 +26,6 @@ $pre=$start-$step;
 $last=$hits-$step;
 
 ?>
-<style>
-        .result_list {}
-        .result_list ol {
-            margin: 0;
-        }
-        .result_list ol li:first-child {
-            padding: 0;
-        }
-        .result_list ol > li {
-            padding-top: 140px;
-        }
-        .result_list ol li ul {
-            float: left;
-        }
-        .result_list ul li {
-            list-style: none;
-        }
-        .result_list ul li:first-child {
-            padding-top: 10px;
-        }
-        .result_list ul ul {
-            padding: 0; padding-top: 10px; padding-left: 5px;
-        }
-        .result_list ul ul li {
-            display: inline;
-        }
-    </style>
 <div class="result_list">
     <ol start=<?=$start;?>>
         <?php
@@ -63,27 +33,27 @@ $last=$hits-$step;
             $ret= $sbn->parse_unimarc_string($sbn->get_Result($i));
         ?>
         <li>
-            <img src=../resources/images/Book.png style="float: left;">
+            <img src="/CoLi/resources/images/Book.png">
             <ul>
                 <li>
                     <?=$ret['autore'][0];?> <?=$ret['autore'][1];?>
                 </li>
                 <li>
-                    <a href="" style="text-decoration: none; color: blue;">
+                    <a class="link" href="">
                         <?=$ret['titolo'];?>
                     </a>
                 </li>
                 <li>
                     <?=$ret['publicazione']['luogo'];?>:
-                    <?=$ret['publicazione']['indirizzo'];?> ,
+                    <?=$ret['publicazione']['indirizzo'];?> 
                     <?=$ret['publicazione']['nome'];?> ,
                     <?=$ret['publicazione']['data'];?>
                 </li>
                 <li>
                     <ul>
-                        <li><a href="" style="padding: 5px; background-color: #8abb21; border-radius: 3px;">Prenota</a></li>
-                        <li style="padding: 5px; background-color: #DDD; border-radius: 3px;">Copie disponibili: n</li>
-                        <li style="padding: 5px; background-color: #DDD; border-radius: 3px;">Prenotazioni: n</li>
+                        <li><a href="">Prenota</a></li>
+                        <li>Copie disponibili: n</li>
+                        <li>Prenotazioni: n</li>
                     </ul>
                 </li>
             </ul>
@@ -128,6 +98,20 @@ $last=$hits-$step;
     </ul>
 </div>
 <?php
-} else 
-    echo "No records found.";
+} else {
+?>
+<div class="frame" style=" width: 300px; margin-top: 20px; margin-left: auto; margin-right: auto;">
+    <h2>Nessun Risultato trovato</h2>
+</div>
+<?php
+}
+
+} catch (sbn_exception $e) {
+    ?>
+<div class="frame" style=" width: 370px; margin-top: 20px; margin-left: auto; margin-right: auto;">
+    <img style="width: 48px; height: 48px; padding-left: 45%;" src="/CoLi/resources/images/warning-256x256.png">
+    <h2 style="text-align: center;"><?=$e->getMessage();?></h2>
+</div>
+<?php
+}
 ?>

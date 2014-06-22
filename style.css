@@ -360,11 +360,54 @@ button::-moz-focus-inner {
   padding: 8px 12px;
 }
 
+.result_list {}
+.result_list ol {
+    margin: 0;
+}
+.result_list ol li:first-child {
+    padding: 0;
+}
+.result_list ol > li {
+    padding-top: 140px;
+}
+.result_list ol li ul {
+    float: left;
+}
+.result_list ul li {
+    list-style: none;
+}
+.result_list ul li:first-child {
+    padding-top: 10px;
+}
+.result_list ul ul {
+    padding: 0; padding-top: 10px; padding-left: 5px;
+}
+.result_list ul ul li {
+    display: inline;
+    padding: 5px; 
+    background-color: #DDD; 
+    border-radius: 3px;
+}
+.result_list ul ul li:first-child {
+
+}
+.result_list ul ul a {
+    padding: 5px; 
+    background-color: #8abb21; 
+    border-radius: 3px;
+}
+.result_list img {
+    float: left;
+}
+.result_list .link {
+    text-decoration: none; 
+    color: blue;
+}
 
 
 #content {
     position: relative;
-    min-height: 100%;
+    min-height: 75%;
 }
 
 .frame {

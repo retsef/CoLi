@@ -1,6 +1,7 @@
 <?php
 
 include 'auth_config.php';
+include 'auth_exception.php';
 include "$_SERVER[DOCUMENT_ROOT]/CoLi/includes/api/db/db_manager.php";
 
 /**
