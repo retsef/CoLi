@@ -39,6 +39,9 @@ ob_start();
                 <?php
                  switch($_GET['page'])
                 {
+                    case 'book':
+                        include './includes/web/book.php';
+                        break;
                     case 'risultati_ricerca':
                        include 'includes/web/risultati_ricerca.php';
                        break;

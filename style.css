@@ -506,7 +506,7 @@ table tr:hover td {
     border-radius: 3px;
 }
 .result_list ul ul li:first-child {
-
+    background-color: transparent;
 }
 .result_list ul ul a {
     padding: 5px; 

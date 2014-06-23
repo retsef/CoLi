@@ -9,10 +9,13 @@ $_SBN['server'] = $_SBN['url'] . ":" . $_SBN['port'] . "/" . $_SBN['dbname'];
 
 $_SBN['syntax'] = "UNIMARC";
 
-$_SBN['fields'] = array("wti" => "1=4",
-                        "ibn" => "1=7",
-                        "isn"   => "1=8",
-                        "wja"   => "1=31",
-                        "wpe"   => "1=1004",
-                        "wve"   => "1=1018");
+/*
+ * Si faccia riferimento al formato Bib-1
+ */
+$_SBN['fields'] = array("titolo" => "1=4",
+                        "isbn" => "1=7",
+                        "issn"   => "1=8",
+                        "data_publ"   => "1=31",
+                        "autore"   => "1=1004",
+                        "casa_ed"   => "1=1018");
 
